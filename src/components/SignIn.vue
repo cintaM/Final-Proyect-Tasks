@@ -1,8 +1,13 @@
 <template>
   <div>Sign In</div>
+<form action="submit">
+<h2> Email</h2>
+<input type="email" placeholder="myemail@myemail.com"/>
+<h2> Password</h2>
+<input type="password" placeholder="my password">
+</form>
   <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Time to build up the Final Project!</p>
-  <p class="wu-text">Wu Tang Forever</p>
+ <RouterView/>
 </template>
 
 <script setup>
@@ -15,7 +20,7 @@ import { storeToRefs } from "pinia";
 
 // Route Variables
 const route = "/auth/sign-up";
-const buttonText = "Test the Sign Up Route";
+const buttonText = "Create your count";
 
 // Input Fields
 const email = ref("");
