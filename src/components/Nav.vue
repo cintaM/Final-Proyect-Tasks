@@ -13,10 +13,16 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-             <PersonalRouter :route="route1" />
+            <router-link to="/auth/login">
             <a class="button is-dark">
               <strong>Sign In</strong>
             </a>
+            </router-link>
+            <router-link to="/auth/sign-up">
+            <a class="button is-dark">
+              <strong>Sign Up</strong>
+            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -26,9 +32,18 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
 
-const route1 = "/auth/login";
+import { ref, computed } from "vue";
+import PersonalRouter from "./PersonalRouter.vue";
+import { supabase } from "../supabase";
+import { useRouter } from "vue-router";
+import { useUserStore } from "../stores/user";
+import { storeToRefs } from "pinia";
+
+const route = "/auth/login";
+const route2 = "/auth/sign-up";
+const redirect = useRouter();
+
 //constant to save a variable that will hold the use router method
 
 // constant to save a variable that will get the user from store with a computed function imported from vue
