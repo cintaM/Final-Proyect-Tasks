@@ -1,6 +1,6 @@
 <template>
      <nav class="nav">
-      <img class="image" src="https://www.nicepng.com/png/detail/172-1726254_the-office-stickers-us-office-office-memes-michael.png" alt="logo"/>
+      <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZIaVv8cf4zlreAN03DMwbFsXrh3X1c20Gzg&usqp=CAU" alt="logo"/>
     <div>
         <h1>Iron-Tasks</h1>
       </div>
