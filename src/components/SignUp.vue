@@ -8,9 +8,8 @@
 <input type="password" placeholder="Enter your password">
 <h2> Confirm your password</h2>
 <input type="password" placeholder="Enter your password again">
-  <PersonalRouter :route="route" :buttonText="buttonText" />
   </form>
-  <router-view/>
+  <button type="submit" to="/"> Submit</button>
 </div>
 </template>
 
@@ -23,7 +22,7 @@ import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 
 // Route Variables
-const route = "/auth/NewTask";
+// const route = "/auth/";
 const buttonText = "Your count";
 
 // Input Fields
@@ -52,7 +51,7 @@ const signUp = async () => {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signUp(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/NewTask" });
+    // redirect.push({ path: "/new-task" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;

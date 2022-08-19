@@ -11,7 +11,6 @@
         </div>
         <SignIn/>
       </div>
-      <RouterView/>
     </div>
 </template>
 
@@ -21,6 +20,7 @@ import Nav from "../components/Nav.vue";
 import Footer from "../components/Footer.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+import {ref} from "vue";
 components:{Nav, Footer, NewTask, TaskItem}
 
 // 1. ref() is used here!

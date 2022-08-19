@@ -1,27 +1,24 @@
 <template>
      <nav >
     <div>
-      <a class="navbar-item" href="/">
         <h1>Iron-Tasks</h1>
-      </a> 
       </div>
     <div id="navbar" >
       <div >
-        <router-link class="navbar-item">Home</router-link>
-        <router-link  class="navbar-item">About</router-link>
+        <router-link to="/" class="navbar-item">Home</router-link>
       </div>
       <div>
         <div>
           <div class="buttons">
-            <router-link >
-            <a>
+            <router-link to="/auth/login" >
+          
               <strong>Sign In</strong>
-            </a>
+            
             </router-link>
-            <router-link>
-            <a>
+            <router-link to="/auth/sign-up">
+    
               <strong>Sign Up</strong>
-            </a>
+            
             </router-link>
           </div>
         </div>
@@ -41,8 +38,8 @@ import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 
 //constant to save a variable that will hold the use router method
-const route = "/auth/login";
-const route2 = "/auth/sign-up";
+// const route = "/auth/login";
+// const route2 = "/auth/sign-up";
 const redirect = useRouter();
 const router = useRouter();
 const userStore = useUserStore();
@@ -59,7 +56,7 @@ const signOut = async () => {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signIn(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/" });
+    // redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
