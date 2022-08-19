@@ -2,9 +2,11 @@
   <div>Sign In</div>
 <form action="submit">
 <h2> Email</h2>
-<input type="email" placeholder="myemail@myemail.com"/>
+<input type="email" placeholder="youremail@myemail.com"/>
 <h2> Password</h2>
-<input type="password" placeholder="my password">
+<input type="password" placeholder="your password">
+<h2> Confirm your password</h2>
+<input type="password" placeholder="Enter your password again">
 </form>
   <PersonalRouter :route="route" :buttonText="buttonText" />
  <RouterView/>
