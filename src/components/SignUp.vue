@@ -1,8 +1,16 @@
 <template>
-  <div>Sign Up</div>
+  <div>
+    <h1> Sign Up</h1> 
+  <form action="submit">
+<h2> Email</h2>
+<input type="email" placeholder="youremail@myemail.com"/>
+<h2> Enter your password</h2>
+<input type="password" placeholder="Enter your password">
+<h2> Confirm your password</h2>
+<input type="password" placeholder="Enter your password again">
   <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Good Music, Patience and a lot effort</p>
-  <p>Keep calm and code on!</p>
+  </form>
+</div>
 </template>
 
 <script setup>
@@ -34,15 +42,16 @@ const passwordFieldTypeConfirm = computed(() =>
 );
 const hidePasswordConfirm = ref(true);
 
+
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
 // Arrow function to SignUp user to supaBase with a timeOut() method for showing the error
 const signUp = async () => {
   try {
     // calls the user store and send the users info to backend to logIn
-    await useUserStore().signIn(email.value, password.value);
+    await useUserStore().signUp(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/" });
+    redirect.push({ path: "/NewTask" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;

@@ -1,15 +1,17 @@
 <template>
-  <div>Sign In</div>
+  <div>
+    <h1>Sign In</h1>
 <form action="submit">
 <h2> Email</h2>
 <input type="email" placeholder="youremail@myemail.com"/>
-<h2> Password</h2>
-<input type="password" placeholder="your password">
+<h2> Enter your password</h2>
+<input type="password" placeholder="Enter your password">
 <h2> Confirm your password</h2>
 <input type="password" placeholder="Enter your password again">
 </form>
   <PersonalRouter :route="route" :buttonText="buttonText" />
- <RouterView/>
+</div>
+  <router-view />
 </template>
 
 <script setup>

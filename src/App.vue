@@ -32,6 +32,7 @@ onMounted(async () => {
 <template>
   <div>
     <Nav/>
+    <SignIn/>
      <router-view />
   </div>
 </template>
