@@ -16,7 +16,9 @@ const routes = [
 
     ],
   },
-  { path: "/", component: Home },
+  { path: "/", component: Home,
+},
+{ path: "/new-task", component:NewTask},
 ];
 const router = createRouter({
   history: createWebHistory(),

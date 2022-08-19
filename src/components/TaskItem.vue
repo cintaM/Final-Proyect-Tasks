@@ -3,6 +3,8 @@
 </template>
 
 <script setup>
+import SignIn from "../components/SignIn.vue"
+components:{SignIn};
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])

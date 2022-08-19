@@ -1,27 +1,19 @@
 <template>
-  <div class="home">
-    <div class="hero is-dark">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title"> IronTasks</h1>
-          <h2 class="subtitle">
-            Organise your life easier!
-          </h2>
-          </div>
-        </div>
+        <div>
         <SignIn/>
       </div>
-    </div>
+    
 </template>
 
 <script setup>
 // 2. (NewTask, TaskItem, Footer, Nav) components are used here! 
 import Nav from "../components/Nav.vue";
+import SignIn from "../components/SignIn.vue"
 import Footer from "../components/Footer.vue";
 import NewTask from "../components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 import {ref} from "vue";
-components:{Nav, Footer, NewTask, TaskItem}
+components:{Nav, Footer, NewTask, TaskItem,SignIn}
 
 // 1. ref() is used here!
 const email = ref("");

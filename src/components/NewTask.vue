@@ -3,6 +3,17 @@
 </template>
 
 <script setup>
+
+import { ref, computed, } from "vue";
+import PersonalRouter from "./PersonalRouter.vue";
+import { supabase } from "../supabase";
+import { useRouter } from "vue-router";
+import { useUserStore, } from "../stores/user";
+import { storeToRefs} from "pinia";
+
+components:{useRouter}
+
+
 // constant to save a variable that define the custom event that will be emitted to the homeView
 
 // constant to save a variable that holds the value of the title input field of the new task

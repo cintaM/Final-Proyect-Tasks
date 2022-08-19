@@ -3,6 +3,8 @@ import { supabase } from "../supabase";
 export const useUserStore = defineStore("user", {
   state: () => ({
     user: null,
+    signIn: null,
+    signUp:null,
   }),
   actions: {
     async fetchUser() {
@@ -34,5 +36,14 @@ export const useUserStore = defineStore("user", {
     },
     async signOut(){
        error  = await supabase.auth.signOut()}
-    }
+    },
+    persist: {
+      enabled: true,
+      strategies: [
+        {
+          key: 'user',
+          storage: localStorage
+        }
+      ]
+    },
   });

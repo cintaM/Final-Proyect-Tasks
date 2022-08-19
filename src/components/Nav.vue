@@ -10,11 +10,6 @@
       <div>
         <div>
           <div class="buttons">
-            <router-link to="/auth/login" >
-          
-              <strong>Sign In</strong>
-            
-            </router-link>
             <router-link to="/auth/sign-up">
     
               <strong>Sign Up</strong>
