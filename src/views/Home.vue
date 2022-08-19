@@ -9,22 +9,35 @@
           </h2>
           </div>
         </div>
+        <SignIn/>
       </div>
       <RouterView/>
     </div>
 </template>
 
 <script setup>
-import Nav from "../components/Nav.vue"
-components:{Nav}
+// 2. (NewTask, TaskItem, Footer, Nav) components are used here! 
+import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue";
+import NewTask from "../components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+components:{Nav, Footer, NewTask, TaskItem}
+
+// 1. ref() is used here!
+const email = ref("");
+const password = ref("");
+
+// 3. Tasks are going to be contained in an array here!
+
+const tasks = ref([]);
 </script>
 <style></style>
 
 <!-- 
 **Hints**
-1. ref() is used here!
-2. (NewTask, TaskItem, Footer, Nav) components are used here! 
-3. Tasks are going to be contained in an array here!
+
+
+
 4. An async function is needed to get all of the tasks stored within the supabase database, this async function's body will contain the tasks value which be use to store the fetchTasks method which lives inside the userTaskStore. This function needs to be called within the setUp script in order to run within the first instance of this component lifecycle.
 5. NewTask component will receive a customEvent on this instance of the homeView that will fire the add-to-do function
 6. add-to-do function will receive 2 params/arguments that will tak a taskTitle and a taskDescription and the body of this async function will call the taskStore that calls the addTask function from the store that pushes the info of the task to the backEnd. This is possible by passing the 2 param/arguments that will be passed by the user from the inputs within the NewTask Component. 

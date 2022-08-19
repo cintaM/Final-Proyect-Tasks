@@ -10,6 +10,7 @@
 <input type="password" placeholder="Enter your password again">
   <PersonalRouter :route="route" :buttonText="buttonText" />
   </form>
+  <router-view/>
 </div>
 </template>
 

@@ -5,12 +5,13 @@ import { useRouter } from "vue-router";
 import { useUserStore } from "./stores/user.js";
 import { ref } from "vue";
 import Nav from "../src/components/Nav.vue";
+import Home from "../src/views/Home.vue"
 
 const router = useRouter();
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
 
-components:{Nav};
+components:{Nav, Home};
 onMounted(async () => {
   const appReady = ref(null);
   try {
@@ -31,9 +32,8 @@ onMounted(async () => {
 
 <template>
   <div>
-    <Nav/>
-    <SignIn/>
-     <router-view />
+<Nav/>
+    <router-view/>
   </div>
 </template>
 

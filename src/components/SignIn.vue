@@ -6,12 +6,9 @@
 <input type="email" placeholder="youremail@myemail.com"/>
 <h2> Enter your password</h2>
 <input type="password" placeholder="Enter your password">
-<h2> Confirm your password</h2>
-<input type="password" placeholder="Enter your password again">
 </form>
   <PersonalRouter :route="route" :buttonText="buttonText" />
 </div>
-  <router-view />
 </template>
 
 <script setup>

@@ -6,4 +6,5 @@
 
 # 19/08/22
 - Comparar los diferentes componentes para ver similitudes y diferencias.
+- Repaso de apuntes y videos para poder aclarar ideas de la parte que falta.
 

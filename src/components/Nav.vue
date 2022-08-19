@@ -1,25 +1,25 @@
 <template>
-     <nav class="navbar container" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+     <nav >
+    <div>
       <a class="navbar-item" href="/">
-        <strong class="is-size-4">Iron-Tasks</strong>
+        <h1>Iron-Tasks</h1>
       </a> 
       </div>
-    <div id="navbar" class="navbar-menu">
-      <div class="navbar-start">
-        <router-link to="/" class="navbar-item">Home</router-link>
-        <router-link to="/about" class="navbar-item">About</router-link>
+    <div id="navbar" >
+      <div >
+        <router-link class="navbar-item">Home</router-link>
+        <router-link  class="navbar-item">About</router-link>
       </div>
-      <div class="navbar-end">
-        <div class="navbar-item">
+      <div>
+        <div>
           <div class="buttons">
-            <router-link to="/auth/login">
-            <a class="button is-dark">
+            <router-link >
+            <a>
               <strong>Sign In</strong>
             </a>
             </router-link>
-            <router-link to="/auth/sign-up">
-            <a class="button is-dark">
+            <router-link>
+            <a>
               <strong>Sign Up</strong>
             </a>
             </router-link>
