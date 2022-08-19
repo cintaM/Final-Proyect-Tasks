@@ -7,11 +7,20 @@
       {{ task.text }}
       <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
     </h3>
-    <p>{{ task.day }}</p>
+    <p>{{ task.description }}</p>
   </div>
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
+import PersonalRouter from "./PersonalRouter.vue";
+import { supabase } from "../supabase";
+import { useRouter } from "vue-router";
+import { useTaskStore } from "../stores/task";
+import { storeToRefs } from "pinia";
+const task = ref({});
+const props = defineProps(["task"]);
+const emit = defineEmits (["delete-task", "toggle-reminder"])
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])

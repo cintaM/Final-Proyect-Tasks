@@ -8,5 +8,10 @@
 - Comparar los diferentes componentes para ver similitudes y diferencias.
 - Repaso de apuntes y videos para poder aclarar ideas de la parte que falta.
 
+# Finalmente realizado:
+- Lógica del user
+- Lógica del task
+- Almacenar datos en API
+
 # Final-Proyect-Tasks
 # Final-Proyect-Tasks
