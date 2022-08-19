@@ -1,10 +1,17 @@
 <template>
-  <div>Task Item Component</div>
+  <div
+    @click="$emit('toggle-reminder', id)"
+    :class="[task.reminder ? 'reminder' : '', 'task']"
+  >
+    <h3>
+      {{ task.text }}
+      <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
+    </h3>
+    <p>{{ task.day }}</p>
+  </div>
 </template>
 
 <script setup>
-import SignIn from "../components/SignIn.vue"
-components:{SignIn};
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])

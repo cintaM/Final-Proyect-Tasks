@@ -1,7 +1,12 @@
 <template>
-  <div>Footer Component</div>
+  <div class="footer">Footer</div>
 </template>
 
 <script setup></script>
 
-<style></style>
+<style>
+.footer{
+  text-align: center;
+  justify-content: end;
+}
+</style>
