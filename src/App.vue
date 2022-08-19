@@ -33,8 +33,6 @@ onMounted(async () => {
 
 <template>
   <div>
-<Nav/>
-<Footer/>
 <router-view></router-view>
   </div>
 </template>

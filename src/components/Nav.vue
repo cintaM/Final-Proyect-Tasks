@@ -1,9 +1,9 @@
 <template>
-     <nav >
+     <nav class="nav">
+      <img class="image" src="https://www.nicepng.com/png/detail/172-1726254_the-office-stickers-us-office-office-memes-michael.png" alt="logo"/>
     <div>
         <h1>Iron-Tasks</h1>
       </div>
-    <div id="navbar" >
       <div >
         <router-link to="/" class="navbar-item">Home</router-link>
       </div>
@@ -18,7 +18,6 @@
           </div>
         </div>
       </div>
-    </div>
   </nav>
  
 </template>
@@ -63,4 +62,14 @@ const signOut = async () => {
 };
 </script>
 
-<style></style>
+<style>
+.nav{
+  display: flex;
+  justify-content: space-between
+}
+.image{
+  width: 100px;
+  height: 80px;
+  border-radius: 80%;
+}
+</style>

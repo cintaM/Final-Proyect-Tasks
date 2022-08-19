@@ -1,8 +1,9 @@
 <template>
+<div class="body">
         <div>
         <SignIn/>
       </div>
-    
+      </div>
 </template>
 
 <script setup>
@@ -23,7 +24,13 @@ const password = ref("");
 
 const tasks = ref([]);
 </script>
-<style></style>
+<style>
+.body{
+  display: flex;
+  flex-direction: column;
+
+}
+</style>
 
 <!-- 
 **Hints**

@@ -1,4 +1,5 @@
 <template>
+<Nav/>
   <div>
     <h1>Sign In</h1>
     <form class="form" @submit.prevent="signIn">
@@ -9,9 +10,10 @@
         Enter your password
         <input v-model="password" class="input" type="password" placeholder="Enter your password"
       /></label>
-      <button class="button" type="submit">Submit</button>
+      <button class="button" type="submit">Login</button>
     </form>
   </div>
+  <Footer/>
 </template>
 
 <script setup>
@@ -19,10 +21,12 @@ import { ref, computed, } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
-import { useUserStore, } from "../stores/user";
+import { useUserStore } from "../stores/user";
 import { storeToRefs} from "pinia";
 import NewTask from "../components/NewTask.vue";
-components:{ NewTask, supabase, storeToRefs}
+import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue"
+components:{ NewTask, supabase, storeToRefs, Nav, Footer}
 // Route Variables
 
 
