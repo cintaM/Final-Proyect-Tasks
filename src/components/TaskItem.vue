@@ -1,13 +1,5 @@
 <template>
-<div @click="$emit('toggle-reminder', id)"
-    :class="[task.reminder ? 'reminder' : '', 'task']"
-  >
-    <h3>
-      {{ task.title }}
-      <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
-    </h3>
-    <p>{{ task.description }}</p>
-  </div>
+
 </template>
 
 <script setup>
@@ -19,31 +11,14 @@ import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
 
 components: {supabase, useTaskStore, storeToRefs}
-const tasks = ref({});
-const reminder=ref(Boolean);
 
-const errorMsg = ref(Boolean);
-const redirect = useRouter();
-const props = defineProps({task:{
- type: [],
- default: false
-}})
-const emit = defineEmits (["delete-task"])
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])
 
 // const props = defineProps(["ENTER-PROP-HERE"]);
-const TaskItems = async(task) => {
-       useTaskStore ().tasks = [... useTaskStore ().tasks, task];
-    }
 
-    const deleteTask = async(id) => {
-      if (confirm("Are you sure you want to delete this task?, WU TANG ")) {
-        useTaskStore ().tasks = useTaskStore ().tasks.filter((task) => task.id !== id);
-      }
-    }
-
+ 
     const addTask = async() => {
   try{
     await useTaskStore().addTask(title.value, description.value)

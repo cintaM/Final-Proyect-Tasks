@@ -26,7 +26,6 @@ export const useTaskStore = defineStore("tasks", {
         {
           user_id: useUserStore().user.id,
           title: title,
-          is_complete: false,
           description: description,
         },
       ]);

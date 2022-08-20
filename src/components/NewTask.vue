@@ -8,13 +8,7 @@
     </div>
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
- <div v-for="task in tasks" :key="task.id">
-    <TaskItem
-      @delete-task="$emit('delete-task', task.id)"
-      :task="task"
-      @toggle-reminder="$emit('toggle-reminder', task.id)"
-    />
-  </div>
+ 
 </template>
 
 <script setup>
@@ -30,20 +24,23 @@ components: {
   useRouter, useTaskStore, TaskItem, supabase, storeToRefs
 }
 
-const task = ({
-  title:"",
-  description:""
-})
+const title=ref("");
+const description=ref("");
 
-const errorMsg = ref(Boolean);
+const errorMsg = ref("");
 const redirect = useRouter();
 
 const tasks=ref([]);
 const props = defineProps({task:{
- type: []
+ type: [],
+},
+title:{
+  type:String
+},
+description:{
+  type:String
 }})
 
-const emit = defineEmits (["delete-task", "toggle-reminder"])
 
 
 
@@ -66,21 +63,11 @@ const addTask = async() => {
   }
 };
 
-const deleteTask = async(id) => {
-      if (confirm("Are you sure you want to delete this task?, WU TANG ")) {
-        useTaskStore ().tasks = useTaskStore ().tasks.filter((task) => task.id !== id);
-      }
-    }
+
     // Toggle Reminder Function
-    const toggleReminder = async (id) => {
-      useTaskStore ().tasks = useTaskStore ().tasks.map((task) =>
-        task.id === id ? { ...task, reminder: !task.reminder } : task
-      );
-    }
+  
     // Add Task Function que recibe un customEvent de el hijo [AddTask.vue component], y debido a que no estamos trabajando con una base de datos, estaremos en esta instancia, empujando la nueva traea al array de tareas existentes!
-    const TaskItems = async(task) => {
-       useTaskStore ().tasks = [... useTaskStore ().tasks, task];
-    }
+   
 </script>
 
 <style>
