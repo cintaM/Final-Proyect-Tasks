@@ -6,41 +6,47 @@
       <label>Task</label>
       <input type="text" name="text" placeholder="description" v-model="description" />
     </div>
-    <div class="form-control form-control-check">
-      <label>Set Reminder</label>
-      <input
-        type="checkbox"
-        name="reminder"
-        placeholder="Add Task"
-        v-model="is_complete"
-      />
-    </div>
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
+ <div v-for="task in tasks" :key="task.id">
+    <TaskItem
+      @delete-task="$emit('delete-task', task.id)"
+      :task="task"
+      @toggle-reminder="$emit('toggle-reminder', task.id)"
+    />
+  </div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, reactive } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
+import TaskItem from "../components/TaskItem.vue"
 
 components: {
-  useRouter, useTaskStore;
+  useRouter, useTaskStore, TaskItem, supabase, storeToRefs
 }
 
-const title = ref("");
-const description = ref("");
-const is_complete = ref(Boolean);
-const errorMsg = ref("");
+const task = ({
+  title:"",
+  description:""
+})
+
+const errorMsg = ref(Boolean);
 const redirect = useRouter();
-// constant to save a variable that define the custom event that will be emitted to the homeView
 
-// constant to save a variable that holds the value of the title input field of the new task
+const tasks=ref([]);
+const props = defineProps({task:{
+ type: []
+}})
 
-// constant to save a variable that holds the value of the description input field of the new task
+const emit = defineEmits (["delete-task", "toggle-reminder"])
+
+
+
 
 // constant to save a variable that holds an initial false boolean value for the errorMessage container that is conditionally displayed depending if the input field is empty
 
@@ -60,6 +66,21 @@ const addTask = async() => {
   }
 };
 
+const deleteTask = async(id) => {
+      if (confirm("Are you sure you want to delete this task?, WU TANG ")) {
+        useTaskStore ().tasks = useTaskStore ().tasks.filter((task) => task.id !== id);
+      }
+    }
+    // Toggle Reminder Function
+    const toggleReminder = async (id) => {
+      useTaskStore ().tasks = useTaskStore ().tasks.map((task) =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      );
+    }
+    // Add Task Function que recibe un customEvent de el hijo [AddTask.vue component], y debido a que no estamos trabajando con una base de datos, estaremos en esta instancia, empujando la nueva traea al array de tareas existentes!
+    const TaskItems = async(task) => {
+       useTaskStore ().tasks = [... useTaskStore ().tasks, task];
+    }
 </script>
 
 <style>

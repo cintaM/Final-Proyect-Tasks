@@ -1,10 +1,9 @@
 <template>
-  <div
-    @click="$emit('toggle-reminder', id)"
+<div @click="$emit('toggle-reminder', id)"
     :class="[task.reminder ? 'reminder' : '', 'task']"
   >
     <h3>
-      {{ task.text }}
+      {{ task.title }}
       <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
     </h3>
     <p>{{ task.description }}</p>
@@ -12,20 +11,51 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, reactive } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
-const task = ref({});
-const props = defineProps(["task"]);
-const emit = defineEmits (["delete-task", "toggle-reminder"])
+
+components: {supabase, useTaskStore, storeToRefs}
+const tasks = ref({});
+const reminder=ref(Boolean);
+
+const errorMsg = ref(Boolean);
+const redirect = useRouter();
+const props = defineProps({task:{
+ type: [],
+ default: false
+}})
+const emit = defineEmits (["delete-task"])
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])
 
 // const props = defineProps(["ENTER-PROP-HERE"]);
+const TaskItems = async(task) => {
+       useTaskStore ().tasks = [... useTaskStore ().tasks, task];
+    }
+
+    const deleteTask = async(id) => {
+      if (confirm("Are you sure you want to delete this task?, WU TANG ")) {
+        useTaskStore ().tasks = useTaskStore ().tasks.filter((task) => task.id !== id);
+      }
+    }
+
+    const addTask = async() => {
+  try{
+    await useTaskStore().addTask(title.value, description.value)
+    redirect.push({path:"/new-task"});}
+    catch (error) {
+    errorMsg.value = `Error: ${error.message}`;
+    setTimeout(() => {
+      errorMsg.value = null;
+    }, 5000);
+  }
+};
+
 </script>
 
 <style></style>
