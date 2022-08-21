@@ -1,6 +1,6 @@
 <template>
      <nav id="nav" class="navbar navbar-light bg-light">
-      <img class="navbar-brand" id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZIaVv8cf4zlreAN03DMwbFsXrh3X1c20Gzg&usqp=CAU" alt="logo"/>
+      <img class="navbar-brand" id="image" src="https://e7.pngegg.com/pngimages/592/707/png-clipart-aphrodite-solar-symbol-greek-mythology-labrys-symbol-miscellaneous-leaf.png" alt="logo"/>
     <div>
         <h2>Iron-Tasks</h2>
       </div>
@@ -60,8 +60,8 @@ const signOut = async () => {
 }
 
 #image{
-  width: 100px;
-  height: 80px;
+  width: 60px;
+  height: 70px;
   border-radius: 80%;
 }
 </style>
