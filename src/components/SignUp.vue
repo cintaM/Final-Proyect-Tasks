@@ -1,32 +1,35 @@
 <template>
-  <div>
-    <h1>Sign Up</h1>
-    <form class="form" action="submit" @submit.prevent="signUp">
-      <label>
-        Email
+<Nav/>
+<div  href="/" class="bg-image  p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  style="background-image: url('https://images.unsplash.com/photo-1522881451255-f59ad836fdfb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1944&q=80'); height: 100vh no-repeat"> 
+  <div >
+    <form id="form1" class="form" action="submit" @submit.prevent="signUp">
+      <h1>Sign Up</h1>
+      <label> Email</label>
         <input class="input"
           v-model="email"
           type="email"
           placeholder="youremail@myemail.com"
-        /></label
-      >
+        />
       <label>
-        Enter your password
+        Enter your password </label>
         <input class="input"
           v-model="password"
           type="password"
           placeholder="Enter your password"
-      /></label>
+      />
       <label>
-        Confirm your password
+        Confirm your password</label>
         <input class="input"
           v-model="password"
           type="password"
           placeholder="Enter your password again"
-      /></label>
-      <button class="button" type="submit">Submit</button>
+      />
+      <button class="btn btn-primary" type="submit">Submit</button>
     </form>
   </div>
+  </div>
+  <Footer/>
 </template>
 
 <script setup>
@@ -36,6 +39,10 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore} from "../stores/user";
 import { storeToRefs} from "pinia";
+import Nav from "../components/Nav.vue";
+import Footer from "../components/Footer.vue";
+
+components:{Nav, Footer};
 
 // Route Variables
 // Input Fields
@@ -95,5 +102,12 @@ const signUp = async () => {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+#form1{
+  width:80vh;
+  text-align: center;
+  justify-content:center;
+  margin-left: 450px
 }
 </style>
