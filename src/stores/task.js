@@ -7,6 +7,7 @@ export const useTaskStore = defineStore("tasks", {
     tasks: null,
     title:"",
     description:"",
+    remainder: false,
   
   
   }),

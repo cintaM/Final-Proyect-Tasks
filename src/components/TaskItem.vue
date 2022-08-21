@@ -1,14 +1,12 @@
 <template>
-<div
-    @click="$emit('toggle-reminder', id)"
-    :class="[task.reminder ? 'reminder' : '', 'task']"
-  >
-    <h3>
+<div v-for = "(task, index) in tasks" :key="index">
+    <h3> Hola
       {{ task.title}}
       <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
     </h3>
-    <p>{{ task.description }}</p>
+    <p>Adios{{ task.description }}</p>
   </div>
+
 </template>
 
 <script setup>
@@ -18,12 +16,12 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
+import NewTask from "../components/NewTask.vue"
 
 components: {supabase, useTaskStore, storeToRefs}
 
 const task = ref({})
-
-const data = reactive({
+const tasks = reactive({
   title:"",
   description:"",
   // reminder: boolean
@@ -58,6 +56,17 @@ const emit = defineEmits([
   }
 };
 
+
+
+const deleteTask= ((id) => {
+      if (confirm("Are you sure you want to delete this task? ")) {
+        tasks = tasks.filter((task) => task.id !== id);
+      }
+    })
+
+// const addTask1 = ((task) => {
+//       tasks = [...tasks, task];
+//     })
  
 </script>
 

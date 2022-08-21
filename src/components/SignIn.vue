@@ -13,11 +13,12 @@
       <div class="form-group">
       <label for="exampleInputPassword1">
         Enter your password</label>
-        <input @click="passwordFieldType" v-model="password" class="form-control" type="password" placeholder="Enter your password" id="exampleInputPassword1" 
+        <input @click="hidePassword" v-model="password" class="form-control" type="password" placeholder="Enter your password" id="exampleInputPassword1" 
       /><button >Mostrar</button></div> 
       <button class="btn btn-primary" type="submit">Login</button>
     </form>
     </div>
+    <Footer/>
 </template>
 
 <script setup>

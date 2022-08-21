@@ -4,7 +4,6 @@
         <SignIn/>
       </div>
       </div>
-       <Footer/>
       
 </template>
 
