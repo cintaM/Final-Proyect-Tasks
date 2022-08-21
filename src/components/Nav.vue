@@ -5,8 +5,8 @@
         <h2>Iron-Tasks</h2>
       </div>
           <div   class="btn btn-dark" id="buttons">
-            <router-link to="/auth/sign-up">
-              <strong>Sign Up</strong>
+            <router-link to="/auth/sign-up" >
+              <strong class="text-light">Sign Up</strong>
             </router-link>
           </div>
   </nav>
