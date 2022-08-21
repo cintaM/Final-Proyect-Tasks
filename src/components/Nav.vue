@@ -10,8 +10,8 @@
           <div   class="btn btn-dark" id="buttons">
             <router-link to="/auth/sign-up" >
               <strong class="text-light">Sign Up</strong>
-            </router-link>
-          </div>
+            </router-link> 
+       </div> 
   </nav>
  
 </template>

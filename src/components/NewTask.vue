@@ -1,14 +1,29 @@
 <template>
-  <form @submit.prevent="addTask" class="add-form">
-    <div class="form-control">
+ <nav id="nav" class="navbar navbar-light bg-light">
+      <router-link to="/">
+      <img class="navbar-brand" id="image" src="https://e7.pngegg.com/pngimages/592/707/png-clipart-aphrodite-solar-symbol-greek-mythology-labrys-symbol-miscellaneous-leaf.png" alt="logo"/>
+    </router-link>
+    <div>
+        <h2>Iron-Tasks</h2>
+      </div>
+          <div   class="btn btn-dark" id="buttons">
+            <router-link to="/auth/sign-up" >
+              <strong class="text-light">Logout</strong>
+            </router-link> 
+       </div> 
+       </nav>
+  <form @submit.prevent="addTask" id="form2" class="form">
+      <div>
       <label>Title</label>
       <input type="text" name="text" placeholder="Add a title" v-model="title" />
-      <label>Task</label>
+     </div>
+     <div>
+     <label>Task</label>
       <input type="text" name="text" placeholder="description" v-model="description" />
     </div>
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
- 
+ <Footer/>
 </template>
 
 <script setup>
@@ -18,10 +33,11 @@ import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
-import TaskItem from "../components/TaskItem.vue"
+import TaskItem from "../components/TaskItem.vue";
+import Footer from "../components/Footer.vue"
 
 components: {
-  useRouter, useTaskStore, TaskItem, supabase, storeToRefs
+  useRouter, useTaskStore, TaskItem, supabase, storeToRefs, Footer
 }
 
 const title=ref("");
@@ -69,40 +85,7 @@ const addTask = async() => {
     // Add Task Function que recibe un customEvent de el hijo [AddTask.vue component], y debido a que no estamos trabajando con una base de datos, estaremos en esta instancia, empujando la nueva traea al array de tareas existentes!
    
 </script>
-
+.add-form
 <style>
-.add-form {
-  margin-bottom: 40px;
-}
 
-.form-control {
-  margin: 20px 0;
-}
-
-.form-control label {
-  display: block;
-}
-
-.form-control input {
-  width: 100%;
-  height: 40px;
-  margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
-}
-
-.form-control-check {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.form-control-check label {
-  flex: 1;
-}
-
-.form-control-check input {
-  flex: 2;
-  height: 20px;
-}
 </style>
