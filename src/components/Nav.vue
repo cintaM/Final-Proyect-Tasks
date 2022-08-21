@@ -1,23 +1,14 @@
 <template>
-     <nav class="nav">
-      <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZIaVv8cf4zlreAN03DMwbFsXrh3X1c20Gzg&usqp=CAU" alt="logo"/>
+     <nav id="nav" class="navbar navbar-light bg-light">
+      <img class="navbar-brand" id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZIaVv8cf4zlreAN03DMwbFsXrh3X1c20Gzg&usqp=CAU" alt="logo"/>
     <div>
-        <h1>Iron-Tasks</h1>
+        <h2>Iron-Tasks</h2>
       </div>
-      <div >
-        <router-link to="/" class="navbar-item">Home</router-link>
-      </div>
-      <div>
-        <div>
-          <div class="buttons">
+          <div   class="btn btn-dark" id="buttons">
             <router-link to="/auth/sign-up">
-    
               <strong>Sign Up</strong>
-            
             </router-link>
           </div>
-        </div>
-      </div>
   </nav>
  
 </template>
@@ -63,11 +54,12 @@ const signOut = async () => {
 </script>
 
 <style>
-.nav{
-  display: flex;
-  justify-content: space-between
+
+.body{
+  margin:0
 }
-.image{
+
+#image{
   width: 100px;
   height: 80px;
   border-radius: 80%;

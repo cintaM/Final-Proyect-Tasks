@@ -7,12 +7,13 @@ import { ref } from "vue";
 import Nav from "../src/components/Nav.vue";
 import Home from "../src/views/Home.vue"
 import Footer from "./components/Footer.vue";
+import SignIn from "./components/SignIn.vue"
 
 const router = useRouter();
 const userStore = useUserStore();
 const { user } = storeToRefs(userStore);
 
-components:{Nav, Home, Footer};
+components:{Nav, Home, Footer, SignIn};
 onMounted(async () => {
   const appReady = ref(null);
   try {
@@ -37,4 +38,9 @@ onMounted(async () => {
   </div>
 </template>
 
-<style></style>
+<style>
+#app{
+  image:src="https://images.unsplash.com/photo-1593698054589-8c14bb66d2d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
+      
+}
+</style>

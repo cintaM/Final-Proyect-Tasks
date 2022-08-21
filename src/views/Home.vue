@@ -4,6 +4,8 @@
         <SignIn/>
       </div>
       </div>
+       <Footer/>
+      
 </template>
 
 <script setup>
@@ -26,8 +28,6 @@ const tasks = ref([]);
 </script>
 <style>
 .body{
-  display: flex;
-  flex-direction: column;
 
 }
 </style>

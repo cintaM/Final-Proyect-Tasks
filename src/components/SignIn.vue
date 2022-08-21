@@ -1,19 +1,23 @@
 <template>
 <Nav/>
-  <div>
+<div class="bg-image  p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  style="background-image: url('https://images.unsplash.com/photo-1522881451255-f59ad836fdfb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1944&q=80'); height: 100vh no-repeat"> 
+  
+    <form id="form2" class="form" @submit.prevent="signIn">
     <h1>Sign In</h1>
-    <form class="form" @submit.prevent="signIn">
-      <label>
-        Email <input  v-model="email" class="input" type="email" placeholder="youremail@myemail.com"
-      /></label>
-      <label>
-        Enter your password
-        <input v-model="password" class="input" type="password" placeholder="Enter your password"
-      /></label>
-      <button class="button" type="submit">Login</button>
+    <div>
+      <label for="exampleInputEmail1"> Email </label>
+        <input   aria-describedby="emailHelp"  id="exampleInputEmail1" v-model="email" class="form-control" type="email" placeholder="youremail@myemail.com"
+      />
+      </div>
+      <div class="form-group">
+      <label for="exampleInputPassword1">
+        Enter your password</label>
+        <input v-model="password" class="form-control" type="password" placeholder="Enter your password" id="exampleInputPassword1" 
+      /></div>
+      <button class="btn btn-primary" type="submit">Login</button>
     </form>
-  </div>
-  <Footer/>
+    </div>
 </template>
 
 <script setup>
@@ -62,26 +66,16 @@ const signIn = async () => {
 </script>
 
 <style>
-.wu-text {
-  color: black;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 0;
-}
-.input {
-  color: black;
-  margin-bottom: 1rem;
-}
-.button {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 10px;
+#form2{
+  width:80vh;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  justify-content:center;
+  margin-left: 450px
 }
+.contenido{
+  display:flex;
+
+}
+
+
 </style>
