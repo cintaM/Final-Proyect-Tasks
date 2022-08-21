@@ -6,7 +6,7 @@
     <div>
         <h2>Iron-Tasks</h2>
       </div>
-          <button @click="signOut"  class="btn btn-dark" id="buttons">
+          <button @submit.prevent="signOut"  class="btn btn-dark" id="buttons">
               <strong class="text-light">Logout</strong>
        </button> 
        </nav>
@@ -21,7 +21,6 @@
     </div>
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
- 
  <Footer/>
 </template>
 
@@ -37,7 +36,7 @@ import TaskItem from "../components/TaskItem.vue";
 import Footer from "../components/Footer.vue"
 
 components: {
-  useRouter, useTaskStore, TaskItem, supabase, storeToRefs, Footer, useTaskStore
+  useRouter, useTaskStore, TaskItem, supabase, storeToRefs, Footer
 }
 
 const title=ref("");
@@ -78,8 +77,13 @@ const addTask = async() => {
     }, 5000);
   }
 };
-const signOut= async()=>{
-       error  = await supabase.auth.signOut()}
+
+const signOut = async() =>{
+  
+    await useTaskStore().signOut()
+    redirect.push({path:"/"})
+}
+
 
     // Toggle Reminder Function
   

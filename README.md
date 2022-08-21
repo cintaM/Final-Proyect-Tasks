@@ -9,9 +9,15 @@
 - Repaso de apuntes y videos para poder aclarar ideas de la parte que falta.
 
 # Finalmente realizado:
-- Lógica del user
-- Lógica del task
-- Almacenar datos en API
+- Lógica del user (login y sign up)
+- Lógica del task (enviar task a API )
+- Estilo de la pagina 
 
-# Final-Proyect-Tasks
-# Final-Proyect-Tasks
+# 22/08/22
+- Realizar la logica del logout
+- Realizar la logica para que aparezca el task en la pantalla
+- Terminar el estilo de la página
+
+# 23/08/22
+- Agregar detalles a la pagina
+- Retocar estilos

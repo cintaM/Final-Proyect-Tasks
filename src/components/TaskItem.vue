@@ -26,14 +26,13 @@ const task = ref({})
 const data = reactive({
   title:"",
   description:"",
-  reminder: boolean
+  // reminder: boolean
 })
 
 defineProps({
-  false:boolean,
   error:"",
   tasks:"",
-  inputFIeld: boolean,
+  // inputFIeld: boolean,
   title:"",
   description:""
 })
