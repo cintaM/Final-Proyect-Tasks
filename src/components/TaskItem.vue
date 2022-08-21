@@ -1,5 +1,14 @@
 <template>
-
+<div
+    @click="$emit('toggle-reminder', id)"
+    :class="[task.reminder ? 'reminder' : '', 'task']"
+  >
+    <h3>
+      {{ task.title}}
+      <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
+    </h3>
+    <p>{{ task.description }}</p>
+  </div>
 </template>
 
 <script setup>
@@ -12,10 +21,29 @@ import { storeToRefs } from "pinia";
 
 components: {supabase, useTaskStore, storeToRefs}
 
+const task = ref({})
+
+const data = reactive({
+  title:"",
+  description:"",
+  reminder: boolean
+})
+
+defineProps({
+  false:boolean,
+  error:"",
+  tasks:"",
+  inputFIeld: boolean,
+  title:"",
+  description:""
+})
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])
 
+const emit = defineEmits([
+  "delete-task", "toggle-reminder"
+])
 // const props = defineProps(["ENTER-PROP-HERE"]);
 
  
@@ -31,6 +59,7 @@ components: {supabase, useTaskStore, storeToRefs}
   }
 };
 
+ 
 </script>
 
 <style></style>
@@ -46,3 +75,4 @@ components: {supabase, useTaskStore, storeToRefs}
 7. Function to edit the task information that you decided that the user can edit. This function's body takes in a conditional that first checks if the value of the task [either title and description or just title] is empty which if true it runs the function used to handle the error on hint4. Else, the conditional sets the first mentioned boolean data property on hint2 back to its inital boolean value to hide the error message and repeat the same for the data property mentioned 4th on hint2; a constant that stores an object that holds the oldValue from the prop item and the value of the task coming from the data property mentioned 3rd on hint2; a custom event emit() that takes 2 parameters a name for the custom event and the value from the object used on this part of the conditional and lastly this part of the conditional sets the value of input field to an empty string to clear it from the ui. 
 8. Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the removal of  the task on the homeview.
 -->
+
