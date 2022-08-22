@@ -15,16 +15,16 @@
         Enter your password </label>
         <input class="input"
           v-model="password"
-          type="password"
+          :type="passwordFieldType"
           placeholder="Enter your password"
-      />
+      /><i @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
       <label>
         Confirm your password</label>
         <input class="input"
           v-model="password2"
-          type="password"
+          :type="passwordFieldType"
           placeholder="Enter your password again"
-      />
+      /><i @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
   </div>
