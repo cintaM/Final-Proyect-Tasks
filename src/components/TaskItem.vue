@@ -17,32 +17,28 @@ import { useRouter } from "vue-router";
 import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
 import NewTask from "../components/NewTask.vue"
-
 components: {supabase, useTaskStore, storeToRefs}
-
 const task = ref({})
 const tasks = reactive({
   title:"",
   description:"",
   // reminder: boolean
 })
-
 defineProps({
   error:"",
   tasks:"",
   // inputFIeld: boolean,
   title:"",
-  description:""
+  description:"",
+  id: 0,
 })
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])
-
 const emit = defineEmits([
   "delete-task", "toggle-reminder"
 ])
 // const props = defineProps(["ENTER-PROP-HERE"]);
-
  
     const addTask = async() => {
   try{
@@ -57,16 +53,6 @@ const emit = defineEmits([
 };
 
 
-
-const deleteTask= ((id) => {
-      if (confirm("Are you sure you want to delete this task? ")) {
-        tasks = tasks.filter((task) => task.id !== id);
-      }
-    })
-
-// const addTask1 = ((task) => {
-//       tasks = [...tasks, task];
-//     })
  
 </script>
 

@@ -1,29 +1,103 @@
 <template>
-<div class="body">
-        <div>
-        <SignIn/>
+         <nav id="nav" class="navbar navbar-light bg-light">
+    <router-link to="/">
+      <img
+        class="navbar-brand"
+        id="image"
+        src="https://e7.pngegg.com/pngimages/592/707/png-clipart-aphrodite-solar-symbol-greek-mythology-labrys-symbol-miscellaneous-leaf.png"
+        alt="logo"
+      />
+    </router-link>
+    <div>
+      <h2>Iron-Tasks</h2>
+    </div>
+    <button @click="signOut" class="btn btn-dark" id="buttons">
+      <strong class="text-light">Logout</strong>
+    </button>
+  </nav>
+  <div>
+    <form @submit.prevent="addTask" id="form2" class="form">
+      <div>
+        <label>Title</label>
+        <input
+          type="text"
+          name="text"
+          placeholder="Add a title"
+          v-model="title"
+        />
       </div>
+      <div>
+        <label>Task</label>
+        <input
+          type="text"
+          name="text"
+          placeholder="description"
+          v-model="description"
+        />
       </div>
-      
+      <input type="submit" value="Save Task" class="btn btn-block" />
+    </form>
+  </div>
+  <div @submit.prevent="fetchTask">
+  </div>
+   <div v-for="tarea in tareas" :key="tarea.id">
+      <h1>{{ tarea.title }}</h1>
+      <h2> {{tarea.description}}</h2>
+    </div>
+  <Footer />
 </template>
 
 <script setup>
 // 2. (NewTask, TaskItem, Footer, Nav) components are used here! 
-import Nav from "../components/Nav.vue";
-import SignIn from "../components/SignIn.vue"
-import Footer from "../components/Footer.vue";
-import NewTask from "../components/NewTask.vue";
+import { ref, computed, reactive } from "vue";
+import { supabase } from "../supabase";
+import { useRouter } from "vue-router";
+import { useTaskStore } from "../stores/task";
+import { useUserStore } from "../stores/user";
+import { storeToRefs } from "pinia";
 import TaskItem from "../components/TaskItem.vue";
-import {ref} from "vue";
-components:{Nav, Footer, NewTask, TaskItem,SignIn}
+import Footer from "../components/Footer.vue";
+import { createClient } from "@supabase/supabase-js";
 
-// 1. ref() is used here!
-const email = ref("");
-const password = ref("");
+const redirect = useRouter();
 
-// 3. Tasks are going to be contained in an array here!
 
-const tasks = ref([]);
+const tareas = ref([]);
+
+const conseguirTareas = async () => {
+  tareas.value = await useTaskStore().fetchTasks();
+};
+
+conseguirTareas();
+
+
+// constant to save a variable that define the custom event that will be emitted to the homeView
+// constant to save a variable that holds the value of the title input field of the new task
+const title = ref("");
+// constant to save a variable that holds the value of the description input field of the new task
+const description = ref("");
+// constant to save a variable that holds an initial false boolean value for the errorMessage container that is conditionally displayed depending if the input field is empty
+// const constant to save a variable that holds the value of the error message
+const errorMsg = ref("");
+// arrow function to call the form holding the task title and task description that uses a conditional to first checks if the task title is empty, if true the error message is displayed through the errorMessage container and sets a timeOut method that hides the error after some time. Else, its emmits a custom event to the home view with the task title and task description; clears the task title and task description input fields.
+const addTask = async () => {
+  try {
+    await useTaskStore().addTask(title.value, description.value);
+    redirect.push({ path: "/" });
+  } catch (error) {
+    errorMsg.value = `Error: ${error.message}`;
+    setTimeout(() => {
+      errorMsg.value = null;
+    }, 5000);
+  }
+};
+
+
+
+const signOut = async () => {
+  await useTaskStore().signOut;
+  redirect.push({ path: "/auth/login" });
+};
 </script>
 <style>
 .body{

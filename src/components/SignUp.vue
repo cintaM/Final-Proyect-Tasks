@@ -21,7 +21,7 @@
       <label>
         Confirm your password</label>
         <input class="input"
-          v-model="password"
+          v-model="password2"
           type="password"
           placeholder="Enter your password again"
       />
@@ -48,6 +48,7 @@ components:{Nav, Footer};
 // Input Fields
 const email = ref("");
 const password = ref("");
+const password2 = ref("");
 // Error Message
 const errorMsg = ref("");
 // Show hide password variable

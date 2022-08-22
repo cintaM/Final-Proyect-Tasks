@@ -13,8 +13,8 @@
       <div class="form-group">
       <label for="exampleInputPassword1">
         Enter your password</label>
-        <input @click="hidePassword" v-model="password" class="form-control" type="password" placeholder="Enter your password" id="exampleInputPassword1" 
-      /><button >Mostrar</button></div> 
+        <input  v-model="password" class="form-control" type="password" placeholder="Enter your password" id="exampleInputPassword1" 
+      /><i @click="passwordFieldType()" class="fa-solid fa-eye"></i></div> 
       <button class="btn btn-primary" type="submit">Login</button>
     </form>
     </div>
@@ -45,7 +45,7 @@ const errorMsg = ref("");
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
-const hidePassword = ref(true);
+const hidePassword = ref(false);
 // Router to push user once SignedIn to the HomeView
 const redirect = useRouter();
 // Arrow function to Signin user to supaBase
@@ -54,7 +54,7 @@ const signIn = async () => {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signIn(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/new-task" });
+    redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
