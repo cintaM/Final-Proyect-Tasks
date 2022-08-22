@@ -1,4 +1,50 @@
 <template>
+       <nav id="nav" class="navbar navbar-light bg-light">
+    <router-link to="/">
+      <img
+        class="navbar-brand"
+        id="image"
+        src="https://e7.pngegg.com/pngimages/592/707/png-clipart-aphrodite-solar-symbol-greek-mythology-labrys-symbol-miscellaneous-leaf.png"
+        alt="logo"
+      />
+    </router-link>
+    <div>
+      <h2>Iron-Tasks</h2>
+    </div>
+    <button @click="signOut" class="btn btn-dark" id="buttons">
+      <strong class="text-light">Logout</strong>
+    </button>
+  </nav>
+  <div>
+    <form @submit.prevent="addTask" id="form2" class="form">
+      <div>
+        <label>Title</label>
+        <input
+          type="text"
+          name="text"
+          placeholder="Add a title"
+          v-model="title"
+        />
+      </div>
+      <div>
+        <label>Task</label>
+        <input
+          type="text"
+          name="text"
+          placeholder="description"
+          v-model="description"
+        />
+      </div>
+      <input type="submit" value="Save Task" class="btn btn-block" />
+    </form>
+  </div>
+  <div @submit.prevent="fetchTask" @delete-task=borrarTareas >
+  </div>
+   <div v-for="tarea in tareas" :key="tarea.id">
+      <h1>{{ tarea.title }}</h1>
+      <h2> {{tarea.description}}</h2>
+      <i  @click="borrarTareas"  class="fa-solid fa-trash-can"></i>
+      </div>
   <!-- <nav id="nav" class="navbar navbar-light bg-light">
     <router-link to="/">
       <img
@@ -54,12 +100,22 @@
 
 <script setup>
 
+import TaskItem from "../components/TaskItem.vue"
 
-// constant to save a variable that define the custom event that will be emitted to the homeView
-// constant to save a variable that holds the value of the title input field of the new task
+// const title = ref("");
+const description = ref("");
 
-// constant to save a variable that holds the value of the description input field of the new task
+const errorMsg = ref(Boolean);
 
+const Mensaje = (() =>{
+  if (title != title){
+    return errorMsg
+  }
+});
+
+const emit = defineEmits([
+  "delete-task", "toggle-reminder", "add-task", "fetch-task"
+])
 // constant to save a variable that holds an initial false boolean value for the errorMessage container that is conditionally displayed depending if the input field is empty
 // const constant to save a variable that holds the value of the error message
 

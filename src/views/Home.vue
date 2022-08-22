@@ -43,7 +43,7 @@
    <div v-for="tarea in tareas" :key="tarea.id">
       <h1>{{ tarea.title }}</h1>
       <h2> {{tarea.description}}</h2>
-      <i  @click="borrarTareas"  class="fa-solid fa-trash-can"></i>
+      <i class="fa-solid fa-trash-can"></i>
     </div>
   <Footer />
 </template>
@@ -71,11 +71,18 @@ const conseguirTareas = async () => {
 
 conseguirTareas();
 
-const borrarTareas = async () =>{
+const borrarTareas = async (id) =>{
   tareas.value = await useTaskStore().borrarTasks();
 }
 
 borrarTareas()
+
+
+const modificarTareas = async (id) =>{
+  tareas.value = await useTaskStore().modificarTasks();
+}
+
+modificarTareas()
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 // constant to save a variable that holds the value of the title input field of the new task
@@ -101,7 +108,7 @@ const addTask = async () => {
 
 
 const signOut = async () => {
-  await useTaskStore().signOut;
+  await useTaskStore().signOut();
   redirect.push({ path: "/auth/login" });
 };
 </script>

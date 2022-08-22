@@ -1,10 +1,10 @@
 <template>
-<div v-for = "(task, index) in tasks" :key="index">
-    <h3> Hola
-      {{ task.title}}
-      <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
-    </h3>
-    <p>Adios{{ task.description }}</p>
+<div v-for="task in tasks" :key="task.id">
+    <Task
+      @delete-task="$emit('delete-task', task.id)"
+      :task="task"
+      @toggle-reminder="$emit('toggle-reminder', task.id)"
+    />
   </div>
 
 </template>
@@ -30,13 +30,12 @@ defineProps({
   // inputFIeld: boolean,
   title:"",
   description:"",
-  id: 0,
 })
 // const emit = defineEmits([
 //   ENTER-EMITS-HERE
 // ])
 const emit = defineEmits([
-  "delete-task", "toggle-reminder"
+  "delete-task", "toggle-reminder","add-task", "fetch-task"
 ])
 // const props = defineProps(["ENTER-PROP-HERE"]);
  
@@ -52,11 +51,32 @@ const emit = defineEmits([
   }
 };
 
-
  
 </script>
 
-<style></style>
+<style>
+
+.fas {
+  color: red;
+  cursor: pointer;
+}
+
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.task.reminder {
+  border-left: 5px solid green;
+}
+
+.task h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}</style>
 
 <!-- 
 **Hints**

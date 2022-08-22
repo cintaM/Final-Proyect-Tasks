@@ -26,9 +26,24 @@ export const useTaskStore = defineStore("tasks", {
       const { data: tasks } = await supabase
         .from("tasks")
         .delete()
-        .match({id: 84} )
+        .match("id")
       this.tasks = tasks;
+      console.log(this.tasks)
       return this.tasks;
+    },
+
+    async modificarTasks() {
+      const { data: tasks } = await supabase
+        .from("tasks")
+        .update("*")
+        .match("id")
+      this.tasks = tasks;
+      console.log(this.tasks)
+      return this.tasks;
+    },
+
+    async signOut (){
+      const { error } = await supabase.auth.signOut()
     },
     // New code
     async addTask(title, description) {
@@ -41,5 +56,7 @@ export const useTaskStore = defineStore("tasks", {
         },
       ]);
     },
+
+    
   },
 });
