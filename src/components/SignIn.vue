@@ -13,8 +13,8 @@
       <div class="form-group">
       <label for="exampleInputPassword1">
         Enter your password</label>
-        <input  v-model="password" class="form-control" type="password" placeholder="Enter your password" id="exampleInputPassword1" 
-      /><i @click="passwordFieldType()" class="fa-solid fa-eye"></i></div> 
+        <input  v-model="password" class="form-control" :type="passwordFieldType" placeholder="Enter your password" id="exampleInputPassword1" 
+      /><i @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i></div> 
       <button class="btn btn-primary" type="submit">Login</button>
     </form>
     </div>

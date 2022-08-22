@@ -21,6 +21,15 @@ export const useTaskStore = defineStore("tasks", {
       console.log(this.tasks)
       return this.tasks;
     },
+
+    async borrarTasks() {
+      const { data: tasks } = await supabase
+        .from("tasks")
+        .delete()
+        .match({id: 84} )
+      this.tasks = tasks;
+      return this.tasks;
+    },
     // New code
     async addTask(title, description) {
       console.log(useUserStore().user.id);
