@@ -13,9 +13,12 @@
       <div class="form-group">
       <label for="exampleInputPassword1">
         Enter your password</label>
-        <input  v-model="password" class="form-control" :type="passwordFieldType" placeholder="Enter your password" id="exampleInputPassword1" 
-      /><i v-if="hidePassword" @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
-      <i v-else @click="hidePassword = !hidePassword"  class="fa-solid fa-eye-slash"></i></div> 
+       <div id="button-input"> <input  v-model="password" class="form-control" :type="passwordFieldType" placeholder="Enter your password" id="exampleInputPassword1" 
+      />
+      <div class="btn btn-dark">
+      <i v-if="hidePassword" @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
+      <i v-else @click="hidePassword = !hidePassword"  class="fa-solid fa-eye-slash"></i>
+      </div></div> </div> 
       <button class="btn btn-primary" type="submit">Login</button>
       <div id="buttons">
         <p class="paragrah">You don't have a account yet?</p>
@@ -97,5 +100,9 @@ const signIn = async () => {
 #buttons{
   display: flex;
   margin-top:1rem
+}
+
+#button-input{
+  display: flex;
 }
 </style>

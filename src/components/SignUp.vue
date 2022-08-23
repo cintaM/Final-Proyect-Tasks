@@ -26,19 +26,22 @@
         <h1>Sign Up</h1>
         <label> Email</label>
         <input
-          class="input"
+          class="form-control"
+          id="input1"
           v-model="email"
           type="email"
           placeholder="youremail@myemail.com"
         />
         <label> Enter your password </label>
-        <input
-          class="input"
+        <div id="button-input">
+          <input
+          id="input"
+          class="form-control"
           v-model="password"
           :type="passwordFieldType"
           placeholder="Enter your password"
         />
-          <i
+          <div class="btn btn-dark" id="button-black"><i
             v-if="hidePassword"
             @click="hidePassword = !hidePassword"
             class="fa-solid fa-eye"
@@ -47,15 +50,16 @@
             v-else
             @click="hidePassword = !hidePassword"
             class="fa-solid fa-eye-slash"
-          ></i>
+          ></i></div></div>
         <label> Confirm your password</label>
-        <input
-          class="input"
+        <div id="button-input"><input
+          id="input"
+          class="form-control"
           v-model="password2"
           :type="passwordFieldType1"
           placeholder="Enter your password again"
         />
-        <i
+        <div class="btn btn-dark" id="button-black"><i
           v-if="hidePassword1"
           @click="hidePassword1 = !hidePassword1"
           class="fa-solid fa-eye"
@@ -64,7 +68,7 @@
           v-else
           @click="hidePassword1 = !hidePassword1"
           class="fa-solid fa-eye-slash"
-        ></i>
+        ></i></div></div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
@@ -130,14 +134,19 @@ const signUp = async () => {
 </script>
 
 <style>
+
 .form {
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
 }
-.input {
+#input {
   color: black;
   margin-bottom: 1rem;
+  width: 50rem;
+}
+#input1{
+  width: 35rem;
 }
 .button {
   background-color: #4caf50; /* Green */
@@ -149,11 +158,20 @@ const signUp = async () => {
   display: inline-block;
   font-size: 16px;
 }
-
 #form1 {
   width: 80vh;
   text-align: center;
   justify-content: center;
   margin-left: 450px;
+}
+
+#button-input{
+  display: flex;
+}
+
+#button-black{
+  padding: 0;
+  margin-bottom: 3.5rem;
+
 }
 </style>

@@ -44,7 +44,7 @@ const errorMsg = ref("");
 const addTask = async (title, description) => {
   try {
     await useTaskStore().addTask(title, description);
-    redirect.push({ path: "/" });
+    redirect.push({ path: "/home" });
     conseguirTareas();
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
