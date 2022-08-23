@@ -1,11 +1,4 @@
 <template>
-<div v-for="task in tasks" :key="task.id">
-    <Task
-      @delete-task="$emit('delete-task', task.id)"
-      :task="task"
-      @toggle-reminder="$emit('toggle-reminder', task.id)"
-    />
-  </div>
 
 </template>
 
@@ -35,7 +28,7 @@ defineProps({
 //   ENTER-EMITS-HERE
 // ])
 const emit = defineEmits([
-  "delete-task", "toggle-reminder","add-task", "fetch-task"
+  "delete-task","add-task", "fetch-task", "edit-task"
 ])
 // const props = defineProps(["ENTER-PROP-HERE"]);
  

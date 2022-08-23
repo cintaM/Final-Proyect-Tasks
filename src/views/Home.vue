@@ -39,11 +39,12 @@
     </form>
   </div>
   <div @submit.prevent="fetchTask">
-  <div @click.prevent="modificarTareas()">
+  <div >
    <div v-for="tarea in tareas" :key="tarea.id">
       <h1>{{ tarea.title }}</h1>
       <h2> {{tarea.description}}</h2>
-      <i @click="borrarTareas()" class="fa-solid fa-trash-can"></i>
+      <i  @click="borrarTareas(tarea.id)" class="fa-solid fa-trash-can"></i>
+      <button @click="modificarTareas(tarea.id)">Edit</button>
   </div> 
   </div>
     </div>
@@ -73,18 +74,18 @@ const conseguirTareas = async () => {
 
 conseguirTareas();
 
-const borrarTareas = async (id) =>{
-  tareas.value = await useTaskStore().borrarTasks();
-}
-
-borrarTareas()
+const borrarTareas = async (id) => {
+   await useTaskStore().borrarTasks(id);
+   conseguirTareas()
+};
 
 
 const modificarTareas = async (id) =>{
-  tareas.value = await useTaskStore().modificarTasks();
+  await useTaskStore().modificarTasks(id);
+  conseguirTareas()
 }
 
-modificarTareas()
+
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 // constant to save a variable that holds the value of the title input field of the new task
@@ -99,6 +100,7 @@ const addTask = async () => {
   try {
     await useTaskStore().addTask(title.value, description.value);
     redirect.push({ path: "/" });
+    conseguirTareas();
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
@@ -107,7 +109,16 @@ const addTask = async () => {
   }
 };
 
-
+// const borrarTareas = async () => {
+//   try {
+//     await useTaskStore().borrarTasks(title.value, description.value);
+//   } catch (error) {
+//     errorMsg.value = `Error: ${error.message}`;
+//     setTimeout(() => {
+//       errorMsg.value = null;
+//     }, 5000);
+//   }
+// };
 
 const signOut = async () => {
   await useTaskStore().signOut();

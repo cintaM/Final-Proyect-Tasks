@@ -43,7 +43,7 @@
    <div v-for="tarea in tareas" :key="tarea.id">
       <h1>{{ tarea.title }}</h1>
       <h2> {{tarea.description}}</h2>
-      <i  @click="borrarTareas"  class="fa-solid fa-trash-can"></i>
+      <!-- <i  @click="borrarTareas"  class="fa-solid fa-trash-can"></i> -->
       </div>
   <!-- <nav id="nav" class="navbar navbar-light bg-light">
     <router-link to="/">
