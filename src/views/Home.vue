@@ -44,7 +44,12 @@
       <h1>{{ tarea.title }}</h1>
       <h2> {{tarea.description}}</h2>
       <i  @click="borrarTareas(tarea.id)" class="fa-solid fa-trash-can"></i>
-      <button @click="modificarTareas(tarea.id)">Edit</button>
+      <button @click="toggleShowForm">Edit</button>
+      <form v-if="showForm" @submit.prevent="modificarTareas(tarea.id, titleEdit, descriptionEdit)">
+      <input type="text" placeholder="Modificar titulo" v-model="titleEdit">
+      <input type="text" placeholder="Modificar descripción" v-model="descriptionEdit">
+      <button type="submit">En el futuro voy a modificar la tarea en Supabase</button>
+      </form>
   </div> 
   </div>
     </div>
@@ -80,18 +85,24 @@ const borrarTareas = async (id) => {
 };
 
 
-const modificarTareas = async (id) =>{
-  await useTaskStore().modificarTasks(id);
+const modificarTareas = async (id, title, description) =>{
+  await useTaskStore().modificarTasks(id, title, description);
   conseguirTareas()
 }
 
+const showForm = ref(false)
 
+const toggleShowForm = () => {
+  showForm.value = !showForm.value
+}
 
 // constant to save a variable that define the custom event that will be emitted to the homeView
 // constant to save a variable that holds the value of the title input field of the new task
 const title = ref("");
+const titleEdit = ref("");
 // constant to save a variable that holds the value of the description input field of the new task
 const description = ref("");
+const descriptionEdit = ref("");
 // constant to save a variable that holds an initial false boolean value for the errorMessage container that is conditionally displayed depending if the input field is empty
 // const constant to save a variable that holds the value of the error message
 const errorMsg = ref("");
