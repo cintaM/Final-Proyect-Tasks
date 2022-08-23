@@ -39,11 +39,13 @@
     </form>
   </div>
   <div @submit.prevent="fetchTask">
-  </div>
+  <div @click.prevent="modificarTareas()">
    <div v-for="tarea in tareas" :key="tarea.id">
       <h1>{{ tarea.title }}</h1>
       <h2> {{tarea.description}}</h2>
-      <i class="fa-solid fa-trash-can"></i>
+      <i @click="borrarTareas()" class="fa-solid fa-trash-can"></i>
+  </div> 
+  </div>
     </div>
   <Footer />
 </template>

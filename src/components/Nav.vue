@@ -1,7 +1,7 @@
 <template>
 
      <nav id="nav" class="navbar navbar-light bg-light">
-      <router-link to="/">
+      <router-link to="/auth/login">
       <img class="navbar-brand" id="image" src="https://e7.pngegg.com/pngimages/592/707/png-clipart-aphrodite-solar-symbol-greek-mythology-labrys-symbol-miscellaneous-leaf.png" alt="logo"/>
     </router-link>
     <div>

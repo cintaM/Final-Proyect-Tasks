@@ -38,7 +38,7 @@
       <input type="submit" value="Save Task" class="btn btn-block" />
     </form>
   </div>
-  <div @submit.prevent="fetchTask" @delete-task=borrarTareas >
+  <div @submit.prevent="fetchTask">
   </div>
    <div v-for="tarea in tareas" :key="tarea.id">
       <h1>{{ tarea.title }}</h1>

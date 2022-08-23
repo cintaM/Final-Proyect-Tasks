@@ -12,12 +12,17 @@
 - Lógica del user (login y sign up)
 - Lógica del task (enviar task a API )
 - Estilo de la pagina 
-
+- Realizado la logica del logout
 # 22/08/22
-- Realizar la logica del logout
-- Realizar la logica para que aparezca el task en la pantalla
+- Realizado el mostrado y ocultado de contraseña
+- Realizado la logica para que aparezca el task en la pantalla
 - Terminar el estilo de la página
 
 # 23/08/22
-- Agregar detalles a la pagina
-- Retocar estilos
+- Lógica delete y update
+- Agregar completado a las tareas
+- Agregar estilo al Task
+
+# 24/08/22
+- Cambiar organización de los tasks
+- Modificar estilos y añadir detalles 

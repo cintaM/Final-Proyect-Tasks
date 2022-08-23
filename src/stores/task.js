@@ -25,8 +25,8 @@ export const useTaskStore = defineStore("tasks", {
     async borrarTasks() {
       const { data: tasks } = await supabase
         .from("tasks")
-        .delete()
-        .match("id")
+        .delete('title')
+        .match('hola')
       this.tasks = tasks;
       console.log(this.tasks)
       return this.tasks;
@@ -35,7 +35,7 @@ export const useTaskStore = defineStore("tasks", {
     async modificarTasks() {
       const { data: tasks } = await supabase
         .from("tasks")
-        .update("*")
+        .update("task")
         .match("id")
       this.tasks = tasks;
       console.log(this.tasks)

@@ -22,9 +22,9 @@
         Confirm your password</label>
         <input class="input"
           v-model="password2"
-          :type="passwordFieldType"
+          :type="passwordFieldType1"
           placeholder="Enter your password again"
-      /><i @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
+      /><i @click="hidePassword1 = !hidePassword1" class="fa-solid fa-eye"></i>
       <button class="btn btn-primary" type="submit">Submit</button>
     </form>
   </div>
@@ -55,8 +55,12 @@ const errorMsg = ref("");
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
-const hidePassword = ref(true);
 
+const passwordFieldType1 = computed(() =>
+  hidePassword1.value ? "password" : "text"
+);
+const hidePassword = ref(true);
+const hidePassword1 = ref(true);
 // Show hide confrimPassword variable
 const passwordFieldTypeConfirm = computed(() =>
   hidePasswordConfirm.value ? "password" : "text"
