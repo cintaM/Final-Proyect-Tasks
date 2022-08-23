@@ -1,85 +1,55 @@
 <template>
-
+  <div>
+  <div >
+   <div v-for="tarea in tareas" :key="tarea.id">
+      <h1>{{ tarea.title }}</h1>
+      <i  @click="$emit('borrar-task', tarea.id)" class="fa-solid fa-trash-can"></i>
+      <h2> {{tarea.description}}</h2>
+      <button @click="toggleShowForm">Edit</button>
+      <form v-if="showForm" @submit.prevent="editTarea(tarea.id)">
+      <input type="text" placeholder="Modificar titulo" v-model="titleEdit">
+      <input type="text" placeholder="Modificar descripción" v-model="descriptionEdit">
+      <button type="submit">En el futuro voy a modificar la tarea en Supabase</button>
+      </form>
+  </div> 
+  </div>
+    </div>
 </template>
 
 <script setup>
-import { ref, computed, reactive } from "vue";
-import PersonalRouter from "./PersonalRouter.vue";
+import { ref, } from "vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
-import NewTask from "../components/NewTask.vue"
-components: {supabase, useTaskStore, storeToRefs}
-const task = ref({})
-const tasks = reactive({
-  title:"",
-  description:"",
-  // reminder: boolean
-})
-defineProps({
-  error:"",
-  tasks:"",
-  // inputFIeld: boolean,
-  title:"",
-  description:"",
-})
-// const emit = defineEmits([
-//   ENTER-EMITS-HERE
-// ])
+import NewTask from "../components/NewTask.vue";
+import Home from "../views/Home.vue";
+const showForm = ref(false);
+const titleEdit = ref("");
+const descriptionEdit = ref("");
+const props = defineProps({
+  tareas: Array,
+  title: String,
+  description: String,
+  titleEdit: String,
+  descriptionEdit: String});
+
 const emit = defineEmits([
-  "delete-task","add-task", "fetch-task", "edit-task"
-])
-// const props = defineProps(["ENTER-PROP-HERE"]);
- 
-    const addTask = async() => {
-  try{
-    await useTaskStore().addTask(title.value, description.value)
-    redirect.push({path:"/new-task"});}
-    catch (error) {
-    errorMsg.value = `Error: ${error.message}`;
-    setTimeout(() => {
-      errorMsg.value = null;
-    }, 5000);
-  }
+  "borrar-task",
+  "toggle-form",
+  "modificar-task",
+  "add-task"
+]);
+
+const editTarea = (id) => {
+  emit("modificar-task", id, titleEdit.value, descriptionEdit.value);
 };
 
- 
+const toggleShowForm = () => {
+  showForm.value = !showForm.value
+};
 </script>
+<style scoped>
 
-<style>
-
-.fas {
-  color: red;
-  cursor: pointer;
-}
-
-.task {
-  background: #f4f4f4;
-  margin: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.task.reminder {
-  border-left: 5px solid green;
-}
-
-.task h3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}</style>
-
-<!-- 
-**Hints**
-1. ref() or reactive() can be used here to store the following, think if you want to store them either individually or like an object, up to you.
-2. Data properties need here are the following: a boolean to store a false**Important variable, a string to store an error, a string to store the value of the task that the user can edit, an initial false boolean to hide the inputFIeld used to edit the new task detail or details[this is in reference of the task title and the task description].
-3. Store the custom emit events that will be used to call the functions of the homeView for editing, deleting and toggling the status[completed, not complted] of the taskItem.
-4. Function to handle the error with the data properties used to control the error and the the boolean controlling the boolean empty variable.
-5. Function to handle the edit dialogue where the inputField is displayed and the string used to store the value of the inputField will be used here to save the value as a prop on this function.
-6. Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the toggle completion of the task on the homeview.
-7. Function to edit the task information that you decided that the user can edit. This function's body takes in a conditional that first checks if the value of the task [either title and description or just title] is empty which if true it runs the function used to handle the error on hint4. Else, the conditional sets the first mentioned boolean data property on hint2 back to its inital boolean value to hide the error message and repeat the same for the data property mentioned 4th on hint2; a constant that stores an object that holds the oldValue from the prop item and the value of the task coming from the data property mentioned 3rd on hint2; a custom event emit() that takes 2 parameters a name for the custom event and the value from the object used on this part of the conditional and lastly this part of the conditional sets the value of input field to an empty string to clear it from the ui. 
-8. Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the removal of  the task on the homeview.
--->
+</style>
 
