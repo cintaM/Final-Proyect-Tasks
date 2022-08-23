@@ -16,7 +16,7 @@ const routes = [
 
     ],
   },
-  { path: "/", component: Home,
+  { path: "/home", component: Home,
 },
 { path: "/new-task", component:NewTask},
 ];

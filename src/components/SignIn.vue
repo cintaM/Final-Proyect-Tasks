@@ -14,8 +14,15 @@
       <label for="exampleInputPassword1">
         Enter your password</label>
         <input  v-model="password" class="form-control" :type="passwordFieldType" placeholder="Enter your password" id="exampleInputPassword1" 
-      /><i @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i></div> 
+      /><i v-if="hidePassword" @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
+      <i v-else @click="hidePassword = !hidePassword"  class="fa-solid fa-eye-slash"></i></div> 
       <button class="btn btn-primary" type="submit">Login</button>
+      <div id="buttons">
+        <p class="paragrah">You don't have a account yet?</p>
+            <router-link to="/auth/sign-up" >
+              Sign Up
+            </router-link> 
+            </div>
     </form>
     </div>
     <Footer/>
@@ -54,7 +61,7 @@ const signIn = async () => {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signIn(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/" });
+    redirect.push({ path: "/home" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
@@ -78,5 +85,17 @@ const signIn = async () => {
 
 }
 
+.paragrah{
+ width: 25rem;
+ font-size: 0.9rem;
+ margin-right: 1rem;
+ margin-bottom: 1rem;
+ text-align: end;
+ color:black
+}
 
+#buttons{
+  display: flex;
+  margin-top:1rem
+}
 </style>
