@@ -106,6 +106,10 @@ const signIn = async () => {
   display: flex;
 }
 
+.body{
+  margin: 0;
+}
+
 @media only screen and (max-width: 765px) {
   
 #form2{
@@ -122,6 +126,14 @@ const signIn = async () => {
 
 #buttons{
 margin-right: 2rem;
+}
+
+#imput{
+ width: 2rem;
+}
+
+body{
+  margin: 0;
 }
 }
 

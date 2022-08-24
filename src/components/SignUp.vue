@@ -7,14 +7,14 @@
         <h2>Iron-Tasks</h2>
       </div>
       
-          <div class="btn btn-dark" id="buttons">
+          <div class="btn btn-dark" id="buttons1">
             <router-link to="/auth/login" >
               <strong class="text-light">Sign In</strong>
             </router-link> 
        </div> 
        </nav>
   <div
-    href="/"
+    href="/" 
     class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
     style="
       background-image: url('https://images.unsplash.com/photo-1522881451255-f59ad836fdfb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1944&q=80');
@@ -70,6 +70,12 @@
           class="fa-solid fa-eye-slash"
         ></i></div></div>
         <button class="btn btn-primary" type="submit">Submit</button>
+        <div id="buttons">
+        <p class="paragrah">Do you have a account?</p>
+            <router-link to="/auth/login" >
+              Sign In
+            </router-link> 
+            </div>
       </form>
     </div>
   </div>
@@ -147,6 +153,8 @@ const signUp = async () => {
 }
 #input1{
   width: 35rem;
+  margin-bottom: 1rem;
+  margin-top:1rem;
 }
 .button {
   background-color: #4caf50; /* Green */
@@ -174,4 +182,43 @@ const signUp = async () => {
   margin-bottom: 3.5rem;
 
 }
+
+#image {
+  width: 60px;
+  height: 70px;
+  border-radius: 80%;
+}
+
+@media only screen and (max-width: 765px) {
+  
+#form1{
+  width:30vh;
+  text-align: center;
+  justify-content:center;
+  margin-left: 10px
+}
+.paragrah{
+ width: 25rem;
+ font-size: 0.8rem;
+
+}
+
+#buttons{
+margin-right: 2rem;
+}
+
+#input {
+  color: black;
+  margin-bottom: 1rem;
+  width: 20rem;
+}
+#input1{
+  width: 15rem;
+}
+
+#buttons1{
+  display: none;
+}
+}
+
 </style>

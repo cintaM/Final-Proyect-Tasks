@@ -16,6 +16,8 @@
   <TaskItem
     @borrar-task="borrarTareas"
     @modificar-task="modificarTareas"
+    @edit-toggle="modificarToggle"
+
     :tareas="tareas"
   />
   <Footer />
@@ -41,18 +43,20 @@ const titleEdit = ref("");
 const descriptionEdit = ref("");
 const errorMsg = ref("");
 
-const addTask = async (title, description) => {
+const addTask = async (title, description, is_complete) => {
   try {
-    await useTaskStore().addTask(title, description);
+    await useTaskStore().addTask(title, description, is_complete);
     redirect.push({ path: "/home" });
     conseguirTareas();
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
       errorMsg.value = null;
-    }, 5000);
+    }, 3000);
   }
 };
+
+
 
 const conseguirTareas = async () => {
   tareas.value = await useTaskStore().fetchTasks();
@@ -75,6 +79,13 @@ const signOut = async () => {
   await useTaskStore().signOut();
   redirect.push({ path: "/auth/login" });
 };
+
+
+const modificarToggle = async (id, is_complete) => {
+  await useTaskStore().modificarToggle(id, is_complete)
+  conseguirTareas();
+};
+
 </script>
 <style>
 </style>

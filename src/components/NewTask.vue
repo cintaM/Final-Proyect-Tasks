@@ -48,9 +48,8 @@ const props = defineProps({
   description: String,
 });
 const emit = defineEmits(["add-task"]);
-
 const añadirTarea = (event) => {
-  emit("add-Task", title.value, description.value);
+  emit("add-task", title.value, description.value);
 };
 </script>
 
