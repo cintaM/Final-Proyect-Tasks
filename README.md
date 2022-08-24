@@ -26,3 +26,4 @@
 - Añadir detalles
 - Modificar estilos
 - Agregar estilo al Task
+- responsive de las páginas
