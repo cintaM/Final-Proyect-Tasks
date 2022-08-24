@@ -16,7 +16,7 @@
        <div id="button-input"> <input  v-model="password" class="form-control" :type="passwordFieldType" placeholder="Enter your password" id="exampleInputPassword1" 
       />
       <div class="btn btn-dark">
-      <i v-if="hidePassword" @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
+      <i v-if="!hidePassword" @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
       <i v-else @click="hidePassword = !hidePassword"  class="fa-solid fa-eye-slash"></i>
       </div></div> </div> 
       <button class="btn btn-primary" type="submit">Login</button>
@@ -53,7 +53,7 @@ const password = ref("");
 const errorMsg = ref("");
 //Show hide password variables
 const passwordFieldType = computed(() =>
-  hidePassword.value ? "password" : "text"
+  hidePassword.value ?  "text" : "password"
 );
 const hidePassword = ref(false);
 // Router to push user once SignedIn to the HomeView
@@ -105,4 +105,25 @@ const signIn = async () => {
 #button-input{
   display: flex;
 }
+
+@media only screen and (max-width: 765px) {
+  
+#form2{
+  width:30vh;
+  text-align: center;
+  justify-content:center;
+  margin-left: 10px
+}
+.paragrah{
+ width: 25rem;
+ font-size: 0.8rem;
+
+}
+
+#buttons{
+margin-right: 2rem;
+}
+}
+
+
 </style>

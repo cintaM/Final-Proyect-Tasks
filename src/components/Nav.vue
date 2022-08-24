@@ -13,7 +13,7 @@
     </div>
 
     <div class="btn btn-dark" id="buttons">
-      <router-link to="/auth/sign-up">
+      <router-link class="btn" to="/auth/sign-up">
         <strong class="text-light">Sign Up</strong>
       </router-link>
     </div>
@@ -29,7 +29,7 @@ import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 </script>
 
-<style>
+<style scoped>
 .body {
   margin: 0;
 }
@@ -45,5 +45,20 @@ import { storeToRefs } from "pinia";
   font-size: 0.8rem;
   margin-right: 0;
   text-align: end;
+}
+
+@media only screen and (max-width: 765px){
+
+  h2{
+    font-size: 1.5rem;
+  }
+
+  #buttons{
+    display: none;
+    
+  }
+
+  
+  
 }
 </style>

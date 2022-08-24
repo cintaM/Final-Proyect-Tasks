@@ -16,6 +16,7 @@ const routes = [
 
     ],
   },
+  {path:"/", component:SignIn},
   { path: "/home", component: Home,
 },
 { path: "/new-task", component:NewTask},
