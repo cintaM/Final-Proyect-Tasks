@@ -8,18 +8,30 @@
         alt="logo"
       />
     </router-link>
+    <div>
+      <h2>Iron-Tasks</h2>
+    </div>
     <button @click="signOut" class="btn btn-dark" id="buttons">
       <strong class="text-light">Logout</strong>
     </button>
   </nav>
+  <div style="background-image: url('https://st2.depositphotos.com/1031174/5660/i/600/depositphotos_56604559-stock-photo-blackboard.jpg'); height: 100vh no-repeat">
   <NewTask @add-task="addTask" />
-  <TaskItem
+  <div id="notes">
+  <div v-for="tarea in tareas" :key="tarea.id" >
+ <div class="card mr-4 mb-5" style="width: 15rem;" >
+  <div class="card-body" id="bodycard">
+ <TaskItem 
     @borrar-task="borrarTareas"
     @modificar-task="modificarTareas"
     @edit-toggle="modificarToggle"
-
-    :tareas="tareas"
+    :tarea="tarea"
   />
+  </div>
+ </div>
+ </div>
+ </div>
+ </div>
   <Footer />
   <router-view />
 </template>
@@ -86,5 +98,15 @@ const modificarToggle = async (id, is_complete) => {
 };
 
 </script>
-<style>
+<style scoped>
+
+#notes {
+  display: flex;
+  margin: 5rem;
+  margin-bottom: 15rem;
+}
+
+#bodycard{
+  background-color: #fcefb4;
+}
 </style>
