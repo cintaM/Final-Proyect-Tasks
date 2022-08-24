@@ -109,4 +109,35 @@ const modificarToggle = async (id, is_complete) => {
 #bodycard{
   background-color: #fcefb4;
 }
+
+#image {
+  width: 60px;
+  height: 70px;
+  border-radius: 80%;
+}
+
+@media only screen and (max-width: 765px){
+
+#notes {
+  display: flex;
+  flex-direction: column;
+  margin: 5rem;
+  margin-bottom: 15rem;
+}
+#image {
+  width: 30px;
+  height: 35px;
+  border-radius: 80%;
+}
+
+h2{
+  font-size: 1.5rem;
+}
+
+#buttons{
+  font-size: 0.6rem;
+}
+}
+
+
 </style>

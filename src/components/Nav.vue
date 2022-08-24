@@ -47,6 +47,11 @@ import { storeToRefs } from "pinia";
   text-align: end;
 }
 
+#buttons{
+margin-right: 2rem;
+padding: 0;
+}
+
 @media only screen and (max-width: 765px){
 
   h2{

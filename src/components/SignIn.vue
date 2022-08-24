@@ -7,19 +7,19 @@
     <h1>Sign In</h1>
     <div>
       <label for="exampleInputEmail1"> Email </label>
-        <input   aria-describedby="emailHelp"  id="exampleInputEmail1" v-model="email" class="form-control" type="email" placeholder="youremail@myemail.com"
+        <input   aria-describedby="emailHelp" required id="exampleInputEmail1" v-model="email" class="form-control" type="email" placeholder="youremail@myemail.com"
       />
       </div>
       <div class="form-group">
       <label for="exampleInputPassword1">
         Enter your password</label>
-       <div id="button-input"> <input  v-model="password" class="form-control" :type="passwordFieldType" placeholder="Enter your password" id="exampleInputPassword1" 
+       <div id="button-input"> <input required v-model="password" class="form-control" :type="passwordFieldType" placeholder="Enter your password" id="exampleInputPassword1" 
       />
       <div class="btn btn-dark">
       <i v-if="!hidePassword" @click="hidePassword = !hidePassword" class="fa-solid fa-eye"></i>
       <i v-else @click="hidePassword = !hidePassword"  class="fa-solid fa-eye-slash"></i>
       </div></div> </div> 
-      <button class="btn btn-primary" type="submit">Login</button>
+      <button id="btnsign" class="btn btn-primary" type="submit">Login</button>
       <div id="buttons">
         <p class="paragrah">You don't have a account yet?</p>
             <router-link to="/auth/sign-up" >
@@ -76,7 +76,7 @@ const signIn = async () => {
 };
 </script>
 
-<style>
+<style scoped>
 #form2{
   width:80vh;
   text-align: center;
@@ -110,6 +110,10 @@ const signIn = async () => {
   margin: 0;
 }
 
+#btnsign{
+  width: 35.5rem;
+}
+
 @media only screen and (max-width: 765px) {
   
 #form2{
@@ -134,6 +138,10 @@ margin-right: 2rem;
 
 body{
   margin: 0;
+}
+
+#btnsign{
+  width: 15.5rem;
 }
 }
 

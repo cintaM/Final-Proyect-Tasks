@@ -139,7 +139,7 @@ const signUp = async () => {
 };
 </script>
 
-<style>
+<style scoped>
 
 .form {
   display: flex;
@@ -166,6 +166,11 @@ const signUp = async () => {
   display: inline-block;
   font-size: 16px;
 }
+
+#buttons{
+    display: flex;
+  margin-top:1rem
+}
 #form1 {
   width: 80vh;
   text-align: center;
@@ -189,6 +194,24 @@ const signUp = async () => {
   border-radius: 80%;
 }
 
+
+i{
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.25rem;
+  padding: 0;
+}
+
+.paragrah{
+ width: 25rem;
+ font-size: 0.9rem;
+ margin-right: 1rem;
+ margin-bottom: 1rem;
+ text-align: end;
+ color:black
+}
 @media only screen and (max-width: 765px) {
   
 #form1{

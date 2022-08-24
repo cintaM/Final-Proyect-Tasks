@@ -67,13 +67,15 @@ h3 {
 
 #input2{
   width: 20rem;
-  margin-left: 8rem;
+  margin-left: 38rem;
   margin-right: 4rem;
   height: 4rem;
+  margin-top:1rem;
 }
 #input1{
   width: 20rem;
-  margin-left: 4rem;
+  margin-left: 38rem;
+  margin-top: 3rem;
 }
 
 ::placeholder{
@@ -83,7 +85,7 @@ h3 {
 #btnfinal{
   margin-top: 1.5rem;
   width: 20rem;
-  margin-left: 10rem;
+  margin-left: 38rem;
 }
 
 #btnnew{
@@ -92,4 +94,34 @@ h3 {
   width: 20rem;
   height: 3rem;
 }
+
+@media only screen and (max-width: 765px){
+
+  #btnnew{
+  margin-left: 5rem;
+  margin-top: 5rem;
+  width: 15rem;
+  height: 3rem;
+}
+
+#input2{
+  width: 15rem;
+  margin-left: 5rem;
+  margin-right: 4rem;
+  height: 4rem;
+  margin-top: 1rem;
+}
+#input1{
+  width: 15rem;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+#btnfinal{
+  margin-top: 1.5rem;
+  width: 15rem;
+  margin-left: 5rem;
+}
+}
+
 </style>
