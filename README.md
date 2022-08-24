@@ -21,8 +21,8 @@
 # 23/08/22
 - Lógica delete y update
 - organizar las views y realizar los emits
-- Agregar estilo al Task
 
 # 24/08/22
 - Añadir detalles
 - Modificar estilos
+- Agregar estilo al Task
