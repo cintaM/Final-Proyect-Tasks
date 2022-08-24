@@ -37,7 +37,6 @@ import { createClient } from "@supabase/supabase-js";
 import NewTask from "../components/NewTask.vue";
 
 const redirect = useRouter();
-
 const tareas = ref([]);
 const titleEdit = ref("");
 const descriptionEdit = ref("");
