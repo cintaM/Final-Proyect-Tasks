@@ -70,8 +70,10 @@ const addTask = async (title, description, is_complete) => {
 
 
 const conseguirTareas = async () => {
-  tareas.value = await useTaskStore().fetchTasks();
+  tareas.value = await useTaskStore().fetchTasks(); 
+  redirect.push({ path: "/home" });
   console.log(tareas.value)
+ 
 };
 
 conseguirTareas();
@@ -79,6 +81,8 @@ conseguirTareas();
 const modificarTareas = async (id, title, description) => {
   await useTaskStore().modificarTasks(id, title, description);
   conseguirTareas();
+  redirect.push({ path: "/home" });
+
 };
 
 const borrarTareas = async (id) => {
@@ -95,6 +99,7 @@ const signOut = async () => {
 const modificarToggle = async (id, is_complete) => {
   await useTaskStore().modificarToggle(id, is_complete)
   conseguirTareas();
+  redirect.push({ path: "/home" });
 };
 
 </script>

@@ -9,7 +9,7 @@
           </div>
           <p id="descrip" class="card-text">{{ tarea.description }}</p>
           <div id="cart-btn">
-            <button class="btn btn-primary mb-3" @click="toggleShowForm">
+            <button class="btn btn-primary mb-3 w-4" @click="toggleShowForm">
               Edit
             </button>
           </div>

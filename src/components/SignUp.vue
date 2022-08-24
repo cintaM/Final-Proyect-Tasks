@@ -27,19 +27,21 @@
         <label> Email</label>
         <input
           class="form-control"
-          id="input1"
+          id="input"
           v-model="email"
           type="email"
           placeholder="youremail@myemail.com"
+          required
         />
         <label> Enter your password </label>
         <div id="button-input">
           <input
-          id="input"
+          id="input1"
           class="form-control"
           v-model="password"
           :type="passwordFieldType"
           placeholder="Enter your password"
+          required
         />
           <div class="btn btn-dark" id="button-black"><i
             v-if="hidePassword"
@@ -58,6 +60,7 @@
           v-model="password2"
           :type="passwordFieldType1"
           placeholder="Enter your password again"
+          required
         />
         <div class="btn btn-dark" id="button-black"><i
           v-if="hidePassword1"
@@ -148,13 +151,17 @@ const signUp = async () => {
 }
 #input {
   color: black;
-  margin-bottom: 1rem;
-  width: 50rem;
+  margin-bottom: 2rem;
+  width: 35rem;
 }
 #input1{
   width: 35rem;
   margin-bottom: 1rem;
-  margin-top:1rem;
+}
+
+#input2{
+  width: 35rem;
+  margin-bottom: 1rem;
 }
 .button {
   background-color: #4caf50; /* Green */
@@ -202,6 +209,10 @@ i{
   justify-content: center;
   margin-top: 0.25rem;
   padding: 0;
+}
+
+h1{
+  margin-bottom: 1.5rem;
 }
 
 .paragrah{
