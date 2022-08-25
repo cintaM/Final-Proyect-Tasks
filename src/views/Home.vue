@@ -73,8 +73,7 @@ const conseguirTareas = async () => {
   tareas.value = await useTaskStore().fetchTasks(); 
 
   console.log(tareas.value)
-  redirect.push({ path: "/home" });
- 
+
 };
 
 conseguirTareas();
@@ -82,7 +81,7 @@ conseguirTareas();
 const modificarTareas = async (id, title, description) => {
   await useTaskStore().modificarTasks(id, title, description);
   conseguirTareas();
-  redirect.push({ path: "/home" });
+
 
 };
 

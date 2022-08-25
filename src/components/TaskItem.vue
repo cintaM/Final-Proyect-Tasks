@@ -12,7 +12,7 @@
         Edit
       </button>
     <div id="complete" @click="editToggle(tarea.id)">
-      <p v-if="!is_complete" class="btn btn-danger">not completed</p>
+      <p v-if="!tarea.is_complete" class="btn btn-danger">not completed</p>
       <p v-else class="btn btn-success">Complete</p>
       </div>  </div>
     <form id="formEdit" v-if="showForm" @submit.prevent="editTarea(tarea.id)">
