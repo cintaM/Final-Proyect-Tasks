@@ -130,7 +130,7 @@ const signUp = async () => {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signUp(email.value, password.value);
     // redirects user to the homeView
-    redirect.push({ path: "/login" });
+    redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
     errorMsg.value = `Error: ${error.message}`;
