@@ -33,7 +33,6 @@
 
 <script setup>
 import { ref, computed, } from "vue";
-import PersonalRouter from "./PersonalRouter.vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
@@ -129,14 +128,15 @@ label{
 .paragrah{
  width: 25rem;
  font-size: 0.8rem;
+ padding-left: 0.5rem;
 
 }
 
 #buttons{
-margin-right: 2rem;
+margin-right: 1rem;
 }
 
-#imput{
+#input{
  width: 2rem;
 }
 
@@ -147,6 +147,15 @@ body{
 #btnsign{
   width: 15.5rem;
 }
+
+#exampleInputEmail1{
+  width: 15.5rem;
+}
+
+#exampleInputPassword1{
+  width: 12.8rem;
+}
+
 }
 
 

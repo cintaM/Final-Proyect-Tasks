@@ -100,7 +100,6 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import PersonalRouter from "./PersonalRouter.vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
@@ -162,7 +161,7 @@ const signUp = async () => {
 }
 #input {
   color: black;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   width: 35rem;
 }
 #input1 {
@@ -207,7 +206,7 @@ const signUp = async () => {
 
 #button-black {
   padding: 0;
-  margin-bottom: 3.5rem;
+  margin-bottom: 1rem;
 }
 
 #image {
@@ -244,6 +243,11 @@ h1 {
     justify-content: center;
     margin-left: 10px;
   }
+
+  h1 {
+  margin-bottom: 1.5rem;
+  margin-left: 2rem;
+}
   .paragrah {
     width: 25rem;
     font-size: 0.8rem;
@@ -256,6 +260,7 @@ h1 {
   #input {
     color: black;
     width: 17rem;
+    margin-bottom: 5rem;
   }
   #input1 {
     width: 15rem;

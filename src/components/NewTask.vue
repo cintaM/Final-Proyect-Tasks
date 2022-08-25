@@ -28,7 +28,6 @@
 <script setup>
 import TaskItem from "../components/TaskItem.vue";
 import { ref, computed, reactive } from "vue";
-import PersonalRouter from "./PersonalRouter.vue";
 import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useTaskStore } from "../stores/task";
