@@ -97,6 +97,10 @@ const signIn = async () => {
  color:black
 }
 
+
+label{
+  margin-top: 1rem;
+}
 #buttons{
   display: flex;
   margin-top:1rem

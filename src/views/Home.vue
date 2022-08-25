@@ -57,8 +57,8 @@ const errorMsg = ref("");
 const addTask = async (title, description, is_complete) => {
   try {
     await useTaskStore().addTask(title, description, is_complete);
-    redirect.push({ path: "/home" });
     conseguirTareas();
+    redirect.push({ path: "/home" });
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
@@ -71,8 +71,9 @@ const addTask = async (title, description, is_complete) => {
 
 const conseguirTareas = async () => {
   tareas.value = await useTaskStore().fetchTasks(); 
-  redirect.push({ path: "/home" });
+
   console.log(tareas.value)
+  redirect.push({ path: "/home" });
  
 };
 

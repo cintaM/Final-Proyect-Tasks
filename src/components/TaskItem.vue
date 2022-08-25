@@ -1,38 +1,36 @@
 <template>
   <div>
-          <div id="tti">
-            <h5 class="card-title">{{ tarea.title }}</h5>
-            <i
-              @click="$emit('borrar-task', tarea.id)"
-              class="fa-solid fa-xmark"
-            ></i>
-          </div>
-          <p id="descrip" class="card-text">{{ tarea.description }}</p>
-          <div id="cart-btn">
-            <button class="btn btn-primary mb-3 w-4" @click="toggleShowForm">
-              Edit
-            </button>
-          </div>
-          <div id="complete" @click="editToggle(tarea.id)">
-            <p v-if="!is_complete" class="btn btn-danger">not completed</p>
-            <p v-else class="btn btn-success">Complete</p>
-          </div>
-          <form v-if="showForm" @submit.prevent="editTarea(tarea.id)">
-            <input
-              id="input1"
-              type="text"
-              placeholder="New title"
-              v-model="titleEdit"
-            />
-            <input
-              id="input2"
-              type="text"
-              placeholder="New description"
-              v-model="descriptionEdit"
-            />
-            <button class="btn btn-info" type="submit">Update</button>
-          </form>
-        </div>
+    <div id="tti">
+      <h5 class="card-title">{{ tarea.title }}</h5>
+      <i @click="$emit('borrar-task', tarea.id)" class="fa-solid fa-xmark"></i>
+    </div>
+    <hr />
+    <p id="descrip" class="card-text">{{ tarea.description }}</p>
+    <div id="cart-btn">
+       <hr />
+      <button class="btn btn-primary mb-3 w-4" @click="toggleShowForm">
+        Edit
+      </button>
+    <div id="complete" @click="editToggle(tarea.id)">
+      <p v-if="!is_complete" class="btn btn-danger">not completed</p>
+      <p v-else class="btn btn-success">Complete</p>
+      </div>  </div>
+    <form id="formEdit" v-if="showForm" @submit.prevent="editTarea(tarea.id)">
+      <input
+        id="input1"
+        type="text"
+        placeholder="New title"
+        v-model="titleEdit"
+      />
+      <input
+        id="input2"
+        type="text"
+        placeholder="New description"
+        v-model="descriptionEdit"
+      />
+      <button class="btn btn-info" type="submit">Update</button>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -108,6 +106,7 @@ h5 {
 
 i {
   width: 0.5rem;
+  cursor: pointer;
 }
 
 #input1 {
