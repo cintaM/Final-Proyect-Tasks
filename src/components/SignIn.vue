@@ -7,7 +7,7 @@
     <h1>Sign In</h1>
     <div>
       <label for="exampleInputEmail1"> Email </label>
-        <input   aria-describedby="emailHelp" required id="exampleInputEmail1" v-model="email" class="form-control" type="email" placeholder="youremail@myemail.com"
+        <input aria-describedby="emailHelp" required id="exampleInputEmail1" v-model="email" class="form-control" type="email" placeholder="youremail@myemail.com"
       />
       </div>
       <div class="form-group">
