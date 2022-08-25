@@ -64,21 +64,30 @@ const emit = defineEmits([
   "edit-toggle",
 ]);
 
+// funciones para emits
+
+// Modificar la tarea
 const editTarea = (id) => {
   emit("modificar-task", id, titleEdit.value, descriptionEdit.value);
   return (titleEdit.value="", descriptionEdit.value="")
   
 };
 
-const toggleShowForm = () => {
-  showForm.value = !showForm.value;
-};
-
 const editToggle = (id) => {
   is_complete.value = !is_complete.value;
   emit("edit-toggle", id, is_complete.value);
 };
+
+// boton para mostrar formulario
+
+const toggleShowForm = () => {
+  showForm.value = !showForm.value;
+};
+
+
+
 </script>
+
 <style scoped>
 #notes {
   display: inline-flex;

@@ -35,9 +35,7 @@ import { useTaskStore } from "../stores/task";
 import { storeToRefs } from "pinia";
 import Home from "../views/Home.vue";
 
-const errorMsg = ref(
-  "Hay algún tipo de error, por favor, inténtelo de nuevo más tarde"
-);
+
 const showForm1 = ref(false);
 const error1 = ref(false);
 const tareas = ref([]);
@@ -53,6 +51,8 @@ const añadirTarea = (event) => {
   emit("add-task", title.value, description.value);
   return (title.value="", description.value="")
 };
+
+// funciones para emits
 
 const toggleShowForm1 = () => {
   showForm1.value = !showForm1.value;
