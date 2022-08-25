@@ -66,6 +66,8 @@ const emit = defineEmits([
 
 const editTarea = (id) => {
   emit("modificar-task", id, titleEdit.value, descriptionEdit.value);
+  return (titleEdit.value="", descriptionEdit.value="")
+  
 };
 
 const toggleShowForm = () => {
@@ -84,11 +86,6 @@ const editToggle = (id) => {
   width: 14rem;
   margin-top: 8rem;
   margin-bottom: 8rem;
-}
-.task {
-  background: #f4f4f4;
-  padding: 5px 5px;
-  cursor: pointer;
 }
 
 #tti {

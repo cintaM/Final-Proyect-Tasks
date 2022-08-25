@@ -51,6 +51,7 @@ const props = defineProps({
 const emit = defineEmits(["add-task"]);
 const añadirTarea = (event) => {
   emit("add-task", title.value, description.value);
+  return (title.value="", description.value="")
 };
 
 const toggleShowForm1 = () => {

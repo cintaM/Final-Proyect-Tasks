@@ -71,7 +71,6 @@ const addTask = async (title, description, is_complete) => {
 
 const conseguirTareas = async () => {
   tareas.value = await useTaskStore().fetchTasks(); 
-
   console.log(tareas.value)
 
 };
@@ -99,7 +98,6 @@ const signOut = async () => {
 const modificarToggle = async (id, is_complete) => {
   await useTaskStore().modificarToggle(id, is_complete)
   conseguirTareas();
-  redirect.push({ path: "/home" });
 };
 
 </script>

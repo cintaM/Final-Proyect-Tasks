@@ -72,7 +72,8 @@
           @click="hidePassword1 = !hidePassword1"
           class="fa-solid fa-eye-slash"
         ></i></div></div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <p>{{errorMsg}}</p>
+        <button class="btn btn-primary" id="btnfin" type="submit">Register</button>
         <div id="buttons">
         <p class="paragrah">Do you have a account?</p>
             <router-link to="/auth/login" >
@@ -126,6 +127,7 @@ const hidePasswordConfirm = ref(true);
 const redirect = useRouter();
 // Arrow function to SignUp user to supaBase with a timeOut() method for showing the error
 const signUp = async () => {
+    if (password.value === password2.value)
   try {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signUp(email.value, password.value);
@@ -138,8 +140,15 @@ const signUp = async () => {
     setTimeout(() => {
       errorMsg.value = null;
     }, 5000);
+  } else{
+    errorMsg.value = "Passwords do not match" ;
+
+    setTimeout(() => {
+    errorMsg.value = null
+  }, 5000)  
   }
 };
+
 </script>
 
 <style scoped>
@@ -244,7 +253,7 @@ margin-right: 2rem;
 #input {
   color: black;
   margin-bottom: 1rem;
-  width: 20rem;
+  width: 17rem;
 }
 #input1{
   width: 15rem;
@@ -252,6 +261,10 @@ margin-right: 2rem;
 
 #buttons1{
   display: none;
+}
+
+#btnfin{
+  width: 17rem;
 }
 }
 
