@@ -107,7 +107,7 @@ const toggleShowForm = () => {
 }
 
 h5 {
-  margin-right: 5rem;
+  margin-right: 2rem;
 }
 
 i {
