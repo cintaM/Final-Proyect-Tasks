@@ -21,8 +21,8 @@
       </div></div> </div> 
       <button id="btnsign" class="btn btn-primary" type="submit">Login</button>
       <div id="buttons">
-        <p class="paragrah">You don't have a account yet?</p>
-            <router-link to="/auth/sign-up" >
+        <p class="paragrah">No account yet?</p>
+            <router-link class="router" to="/auth/sign-up" >
               Sign Up
             </router-link> 
             </div>
@@ -40,24 +40,23 @@ import { storeToRefs} from "pinia";
 import NewTask from "../components/NewTask.vue";
 import Nav from "../components/Nav.vue";
 import Footer from "../components/Footer.vue"
-components:{ NewTask, supabase, storeToRefs, Nav, Footer}
-// Route Variables
 
 
-// Input Fields
+
+
 const email = ref("");
 const password = ref("");
-
-// Error Message
 const errorMsg = ref("");
-//Show hide password variables
+
+
 const passwordFieldType = computed(() =>
   hidePassword.value ?  "text" : "password"
 );
 const hidePassword = ref(false);
-// Router to push user once SignedIn to the HomeView
+
 const redirect = useRouter();
-// Arrow function to Signin user to supaBase
+
+
 const signIn = async () => {
   try {
     // calls the user store and send the users info to backend to logIn
@@ -90,7 +89,7 @@ const signIn = async () => {
 .paragrah{
  width: 25rem;
  font-size: 0.9rem;
- margin-right: 1rem;
+ margin-right: 2rem;
  margin-bottom: 1rem;
  text-align: end;
  color:black
@@ -116,6 +115,12 @@ label{
 #btnsign{
   width: 35.5rem;
 }
+
+.router{
+  margin-right: 5rem;
+  width: 20rem;
+}
+
 
 @media only screen and (max-width: 765px) {
   
