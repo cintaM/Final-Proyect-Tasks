@@ -21,7 +21,7 @@
       </div></div> </div> 
       <button id="btnsign" class="btn btn-primary" type="submit">Login</button>
       <div id="buttons">
-        <p class="paragrah">No account yet?</p>
+        <p class="paragrah">Don't have an account yet? </p>
             <router-link class="router" to="/auth/sign-up" >
               Sign Up
             </router-link> 
@@ -101,7 +101,7 @@ label{
 }
 #buttons{
   display: flex;
-  margin-top:1rem
+  margin-top:1rem;
 }
 
 #button-input{
@@ -119,7 +119,8 @@ label{
 
 .router{
   margin-right: 5rem;
-  width: rem;
+  width: 10rem;
+
 }
 
 #exampleInputEmail1{

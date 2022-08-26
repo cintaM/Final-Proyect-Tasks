@@ -90,7 +90,7 @@
         </button>
         <div id="buttons">
           <p class="paragrah">Do you have a account?</p>
-          <router-link to="/auth/login"> Sign In </router-link>
+          <router-link class="router" to="/auth/login"> Sign In </router-link>
         </div>
       </form>
     </div>
@@ -174,6 +174,9 @@ const signUp = async () => {
   margin-bottom: 1rem;
 }
 
+.router{
+  width: 5rem;
+}
 #error {
   color: orangered;
   font-size: xx-large;
@@ -192,6 +195,7 @@ const signUp = async () => {
 #buttons {
   display: flex;
   margin-top: 1rem;
+  margin-right: 8rem;
 }
 #form1 {
   width: 80vh;
