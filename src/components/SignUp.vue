@@ -162,7 +162,7 @@ const signUp = async () => {
 #input {
   color: black;
   margin-bottom: 1rem;
-  width: 35rem;
+  width: 32.5rem;
 }
 #input1 {
   width: 35rem;

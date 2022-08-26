@@ -113,12 +113,12 @@ label{
 }
 
 #btnsign{
-  width: 35.5rem;
+  width: 32.8rem;
 }
 
 .router{
   margin-right: 5rem;
-  width: 20rem;
+  width: rem;
 }
 
 
