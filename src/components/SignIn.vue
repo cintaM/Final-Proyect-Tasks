@@ -113,7 +113,8 @@ label{
 }
 
 #btnsign{
-  width: 32.8rem;
+  width: 34.2rem;
+  margin-right: 2rem;
 }
 
 .router{
@@ -121,7 +122,13 @@ label{
   width: rem;
 }
 
+#exampleInputEmail1{
+  width: 34rem;
+}
 
+#exampleInputPassword1{
+  width: 31.5rem;
+}
 @media only screen and (max-width: 765px) {
   
 #form2{

@@ -162,7 +162,7 @@ const signUp = async () => {
 #input {
   color: black;
   margin-bottom: 1rem;
-  width: 32.5rem;
+  width: 35.5rem;
 }
 #input1 {
   width: 35rem;
@@ -236,6 +236,8 @@ h1 {
   text-align: end;
   color: black;
 }
+
+
 @media only screen and (max-width: 765px) {
   #form1 {
     width: 30vh;
